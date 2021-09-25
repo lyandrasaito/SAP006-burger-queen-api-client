@@ -15,7 +15,7 @@ export const signUp = async (data) => {
   });
 };
 
-
+// values como parametro e chamar ele depois do stringfy
 //https://dev.to/silvenleaf/fetch-api-easiest-explanation-part-1-4-get-silvenleaf-21e2
 //stringfy para enviar info
 //parse para pegar info
