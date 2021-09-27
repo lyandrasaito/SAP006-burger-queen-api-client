@@ -5,30 +5,39 @@ import './index.css';
 import logo from '../../img/logo.png'
 import Button from "../../components/button/button.js";
 import Input from "../../components/input/input.js";
+import validation from "../../validation.js";
+import useForm from '../login/useForm.js';
 
 const Login = () => {
+  const { handleChange, values, handleSubmit, errors } = useForm(validation);
+
   const history = useHistory();
-  const handleSignIn = () => {
-    localStorage.setItem(STORAGE_KEY, 'abc_123')
+  /*
+  const routerHall = () => {
     history.push('/hall')
   }
+  const routerKitchen = () => {
+    history.push('/kitchen')
+  }*/
   const handleSignup = () => {
     history.push('/signup')
   }
+
   return (
     <>
       <div className='content flexBox'>
         <div className='area flexBox'>
           <img src={logo} alt='logo' />
           <h1>Login</h1>
-
-          <form>
-            <div className="flexBox">
-              <Input className="field" type='email' placeholder='E-mail:' />
-              <Input className="field" type='password' placeholder='Senha: ' />
+          <form onSubmit={handleSubmit}>
+            <div className='flexBox'>
+              <Input name='email' value={values.email} type='email' placeholder='E-mail:' className='field' onChange={handleChange} />
+              <p>{errors.email}a</p>
+              <Input name='password' value={values.password} type='password' placeholder='Senha: ' className='field' onChange={handleChange} />
+              <p>{errors.password}</p>
             </div>
-            <div className="flexBox">
-              <Button className='button' type='submit' onClick={handleSignIn} text='Login' />
+            <div className='flexBox'>
+              <Button className='button' type='submit' text='Login' />
             </div>
           </form>
 
