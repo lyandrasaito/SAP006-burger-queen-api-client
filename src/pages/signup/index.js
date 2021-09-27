@@ -1,14 +1,13 @@
 import React from 'react';
 import logo from '../../img/logo.png'
 import Button from '../../components/button/button.js';
-import Input from '../../components/input/input.js';
-import P from '../../components/p/p';
+import Input from '../../components/input/input';
 import './index.css';
-import useForm from './useForm';
-import validatate from '../../validation';
+import validation from '../../validation'
+import useForm from './testeForm';
 
 const Signup = () => {
-  const { handleChange, values, handleSubmit, errors } = useForm(validatate);
+  const { handleChange, values, handleSubmit, errors } = useForm(validation);
   return (
     <>
       <div className='content flexBox'>
@@ -16,14 +15,22 @@ const Signup = () => {
           <img src={logo} alt='logo' />
           <h1>Cadastro</h1>
 
-          <form className='form' onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit}>
             <div className='flexBox'>
-              <Input name='username' type='text' placeholder='Nome:' className='field' value={values.username} onChange={handleChange} />
-              <P>{errors.username}</P>
-              <Input name='email' type='email' placeholder='E-mail:' className='field' value={values.email} onChange={handleChange} />
-              <P>{errors.email}</P>
-              <Input name='password' type='password' placeholder='Senha: ' className='field' value={values.password} onChange={handleChange} />
-              <P>{errors.password}</P>
+              <Input name='username' type='text' placeholder='Nome:' className='field' 
+              value={values.username} onChange={handleChange} />
+              <p>{errors.username}</p>
+
+              <Input name='email' type='email' placeholder='E-mail:' className='field' 
+              value={values.email} onChange={handleChange} />
+              <p>{errors.email}</p>
+
+
+              <Input name='password' type='password' placeholder='Senha: ' className='field' 
+              value={values.password} onChange={handleChange} />
+              <p>{errors.password}</p>
+
+              
               <select className='field' name="role" id="role">
                 <option value="" selected disabled>Área: </option>
                 <option value="hall">Salão</option>

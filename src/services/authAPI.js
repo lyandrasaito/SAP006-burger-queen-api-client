@@ -1,8 +1,8 @@
 export const signUp = async (data) => {
   return await fetch('https://lab-api-bq.herokuapp.com/users', {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json"
     },
     body: JSON.stringify({
       name: data.name,
@@ -10,9 +10,8 @@ export const signUp = async (data) => {
       password: data.password,
       role: data.role,
       restaurant: 'Burger Things',
-    })
-      .then(data => console.log(data.json()))
-  });
+    }),
+  }).then(banana => banana.json())
 };
 
 // values como parametro e chamar ele depois do stringfy
@@ -30,5 +29,5 @@ export const signIn = async (data) => {
       email: data.email,
       password: data.password,
     })
-  });
+  }).then(banana => banana.json())
 };

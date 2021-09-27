@@ -5,11 +5,11 @@ export default function validation(values) {
     errors.username = 'Preencha o seu nome';
   }
   // else if (!/^[A-Za-z]+/.test(values.name.trim())) {
-  //   errors.name = 'Enter a valid name';
+  //   errors.name = '';
   // }
 
   if (!values.email) {
-    errors.email = 'Preencha com seu email';
+    errors.email = 'Preencha seu email';
   } else if (!/\S+@\S+\.\S+/.test(values.email)) {
     errors.email = 'Email inválido. Tente novamente';
   }
@@ -18,5 +18,6 @@ export default function validation(values) {
   } else if (values.password.length < 6) {
     errors.password = 'A senha deve conter no mínimo 6 caracteres';
   }
+
   return errors;
 }
