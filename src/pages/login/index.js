@@ -1,27 +1,14 @@
 import React from "react";
-import { STORAGE_KEY } from '../../utils/authStorage.js';
-import { useHistory } from 'react-router-dom';
+//import { STORAGE_KEY } from '../../utils/authStorage.js';
 import './index.css';
 import logo from '../../img/logo.png'
 import Button from "../../components/button/button.js";
 import Input from "../../components/input/input.js";
-import validation from "../../validation.js";
 import useForm from '../login/useForm.js';
+//import validation from "../../validation.js";
 
 const Login = () => {
-  const { handleChange, values, handleSubmit, errors } = useForm(validation);
-
-  const history = useHistory();
-  /*
-  const routerHall = () => {
-    history.push('/hall')
-  }
-  const routerKitchen = () => {
-    history.push('/kitchen')
-  }*/
-  const handleSignup = () => {
-    history.push('/signup')
-  }
+  const { handleChange, handleSubmit, handleSignup } = useForm();
 
   return (
     <>
@@ -31,10 +18,11 @@ const Login = () => {
           <h1>Login</h1>
           <form onSubmit={handleSubmit}>
             <div className='flexBox'>
-              <Input name='email' value={values.email} type='email' placeholder='E-mail:' className='field' onChange={handleChange} />
-              <p>{errors.email}a</p>
-              <Input name='password' value={values.password} type='password' placeholder='Senha: ' className='field' onChange={handleChange} />
-              <p>{errors.password}</p>
+              <Input name='email' type='email' placeholder='E-mail:'
+                className='field' onChange={handleChange} />
+
+              <Input name='password' type='password' placeholder='Senha: '
+                className='field' onChange={handleChange} />
             </div>
             <div className='flexBox'>
               <Button className='button' type='submit' text='Login' />

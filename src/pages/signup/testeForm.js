@@ -18,11 +18,11 @@ const useForm = (validate) => {
   };
 
   const handleSubmit = e => {
-    //e.preventDefaut();
+    e.preventDefaut();
 
     setErrors(validate(values))
   }
-  return { handleChange, values, handleSubmit, errors }
+  return { handleChange, handleSubmit, errors }
 }
 
 export default useForm;

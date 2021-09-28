@@ -1,15 +1,10 @@
 import React from 'react';
 
-//onChange, value
-const Input = ({ name, type, placeholder, className, value }) => {
+const Input = ({ ...props }) => {
+
   return (
-    <input
-      name={name}
-      type={type}
-      placeholder={placeholder}
-      className={className}
-      value={value.name}
-    />
+    <input  {...props} />
   )
 }
-export default Input;
+
+export default Input

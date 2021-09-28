@@ -14,20 +14,19 @@ export const signUp = async (data) => {
   }).then(banana => banana.json())
 };
 
-// values como parametro e chamar ele depois do stringfy
-//https://dev.to/silvenleaf/fetch-api-easiest-explanation-part-1-4-get-silvenleaf-21e2
 //stringfy para enviar info
 //parse para pegar info
 
-export const signIn = async (data) => {
+export const signIn = async (email, password) => {
+  //console.log(email, password)
   return await fetch('https://lab-api-bq.herokuapp.com/auth', {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      email: data.email,
-      password: data.password,
+      email: email,
+      password: password
     })
-  }).then(banana => banana.json())
+  }).then(res => res.json());
 };

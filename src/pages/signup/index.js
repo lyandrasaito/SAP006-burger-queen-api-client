@@ -7,7 +7,7 @@ import validation from '../../validation'
 import useForm from './testeForm';
 
 const Signup = () => {
-  const { handleChange, values, handleSubmit, errors } = useForm(validation);
+  const { handleChange, handleSubmit, errors } = useForm(validation);
   return (
     <>
       <div className='content flexBox'>
@@ -17,20 +17,20 @@ const Signup = () => {
 
           <form onSubmit={handleSubmit}>
             <div className='flexBox'>
-              <Input name='username' type='text' placeholder='Nome:' className='field' 
-              value={values.username} onChange={handleChange} />
+              <Input name='username' type='text' placeholder='Nome:' className='field'
+                onChange={handleChange} />
               <p>{errors.username}</p>
 
-              <Input name='email' type='email' placeholder='E-mail:' className='field' 
-              value={values.email} onChange={handleChange} />
+              <Input name='email' type='email' placeholder='E-mail:' className='field'
+                onChange={handleChange} />
               <p>{errors.email}</p>
 
 
-              <Input name='password' type='password' placeholder='Senha: ' className='field' 
-              value={values.password} onChange={handleChange} />
+              <Input name='password' type='password' placeholder='Senha: ' className='field'
+                onChange={handleChange} />
               <p>{errors.password}</p>
 
-              
+
               <select className='field' name="role" id="role">
                 <option value="" selected disabled>Área: </option>
                 <option value="hall">Salão</option>
