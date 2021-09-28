@@ -1,34 +1,32 @@
-export const signUp = async (data) => {
+export const signUp = async (name, email, password, role) => {
   return await fetch('https://lab-api-bq.herokuapp.com/users', {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json"
     },
     body: JSON.stringify({
-      name: data.name,
-      email: data.email,
-      password: data.password,
-      role: data.role,
+      name: name,
+      email: email,
+      password: password,
+      role: role,
       restaurant: 'Burger Things',
-    })
-      .then(data => console.log(data.json()))
-  });
+    }),
+  }).then(res => res.json())
 };
 
-
-//https://dev.to/silvenleaf/fetch-api-easiest-explanation-part-1-4-get-silvenleaf-21e2
 //stringfy para enviar info
 //parse para pegar info
 
-export const signIn = async (data) => {
+export const signIn = async (email, password) => {
+  //console.log(email, password)
   return await fetch('https://lab-api-bq.herokuapp.com/auth', {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      email: data.email,
-      password: data.password,
+      email: email,
+      password: password
     })
-  });
+  }).then(res => res.json());
 };

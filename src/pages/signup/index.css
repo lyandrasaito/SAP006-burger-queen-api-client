@@ -55,3 +55,7 @@
 .field:focus {
   border: 3px solid white;
 }
+
+p {
+  color: white;
+}
