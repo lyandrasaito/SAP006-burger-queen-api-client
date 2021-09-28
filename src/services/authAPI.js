@@ -1,14 +1,14 @@
-export const signUp = async (data) => {
+export const signUp = async (name, email, password, role) => {
   return await fetch('https://lab-api-bq.herokuapp.com/users', {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
     },
     body: JSON.stringify({
-      name: data.name,
-      email: data.email,
-      password: data.password,
-      role: data.role,
+      name:name,
+      email: email,
+      password: password,
+      role:role,
       restaurant: 'Burger Things',
     }),
   }).then(banana => banana.json())

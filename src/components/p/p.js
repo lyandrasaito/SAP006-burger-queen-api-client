@@ -1,6 +1,6 @@
 import React from 'react';
 
-function P({ errors }) {
+function PError({ errors }) {
   return (
     <p>
       {errors.name}
@@ -8,4 +8,4 @@ function P({ errors }) {
   );
 }
 
-export default P;
+export default PError;
