@@ -5,7 +5,7 @@ import Signup from '../pages/signup/index.js';
 import Kitchen from '../pages/kitchen/index.js';
 import Hall from '../pages/hall/index.js';
 import NotFound from '../pages/notfound/index.js';
-import PrivateRoute from './privateRoute/index.js';
+//import PrivateRoute from './privateRoute/index.js';
 
 const Root = () => {
   return (
@@ -14,8 +14,8 @@ const Root = () => {
         <Route path='/' exact component={Login} />
         <Route path='/login' component={Login} />
         <Route path='/signup' component={Signup} />
-        <PrivateRoute path='/kitchen' component={Kitchen} />
-        <PrivateRoute path='/hall' component={Hall} />
+        <Route path='/kitchen' component={Kitchen} />
+        <Route path='/hall' component={Hall} />
         <Route component={NotFound} />
       </Switch>
     </BrowserRouter>
