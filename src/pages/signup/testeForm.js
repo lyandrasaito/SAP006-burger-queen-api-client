@@ -2,7 +2,7 @@ import { useState } from "react";
 
 const useForm = (validate) => {
   const [values, setValues] = useState({
-    username: '',
+    name: '',
     email: '',
     password: '',
     role: ''
@@ -18,7 +18,7 @@ const useForm = (validate) => {
   };
 
   const handleSubmit = e => {
-    e.preventDefaut();
+    //e.preventDefaut();
 
     setErrors(validate(values))
   }

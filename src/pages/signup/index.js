@@ -17,9 +17,9 @@ const Signup = () => {
 
           <form onSubmit={handleSubmit}>
             <div className='flexBox'>
-              <Input name='username' type='text' placeholder='Nome:' className='field'
+              <Input name='name' type='text' placeholder='Nome:' className='field'
                 onChange={handleChange} />
-              <p>{errors.username}</p>
+              <p>{errors.name}</p>
 
               <Input name='email' type='email' placeholder='E-mail:' className='field'
                 onChange={handleChange} />

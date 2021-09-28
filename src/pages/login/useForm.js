@@ -12,7 +12,7 @@ const useForm = () => {
 
   //const [errors, setErrors] = useState({});
 
-  const history = useHistory()
+  const history = useHistory();
 
   const handleSignup = () => {
     history.push('/signup')
@@ -31,19 +31,17 @@ const useForm = () => {
 
     signIn(values.email, values.password).then((response) => {
         if (response.code === 400) {
-          console.log("E-mail e/ou senha inválidos")
+          console.log("E-mail e/ou senha inválidos");
         } else {          
-          
           localStorage.setItem('token', response.token);
-          localStorage.setItem("id", response.id);
+          localStorage.setItem('id', response.id);
 
           if (response.role === "hall") {
             history.push('/hall')
           }
-          else if (response.role === "kitchen" || response.role === "cozinha") {
+          else if (response.role === "kitchen") {
             history.push('/kitchen')
           }
-
         }
       }).catch((error) => {
         console.log(error)
