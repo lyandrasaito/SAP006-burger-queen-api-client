@@ -1,49 +1,51 @@
-import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import { signUp } from '../../services/authAPI';
+import { useState } from "react";
+import { signUp } from "../../services/authAPI.js";
 
-const useForm = (validate) => {
+const useForm = () => {
+
+  localStorage.clear();
+
   const [values, setValues] = useState({
     name: '',
     email: '',
     password: '',
-    role: ''
-  });
-  const [errors, setErrors] = useState({
-    name: '',
-    email: '',
-    password: '',
-    role: ''
+    role: '',
   });
 
+  //const [errors, setErrors] = useState({});
+
   const handleChange = e => {
-    const { name, value } = e.target
+    const { name, value } = e.target;
     setValues({
       ...values,
       [name]: value
     });
   };
-  
-  const history = useHistory()
 
-  const handleSubmit = e => {
-    setErrors(validate(values))
-    let errorMsg = '';
-    signUp(values.name, values.email, values.password, values.role)
-    .then((response) => {
-      if (response.code === 400){
-        errorMsg = 'Responda os dados obrigatórios';
-      } else if (response === 403) {
-        errorMsg = 'Email já cadastrado';
-        if (response === 200){
-          history.push('/login')
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    signUp(values.name, values.email, values.password, values.role).then((response) => {
+        if (response.code === 400) {
+          console.log("Dados obrigatórios ausentes")
+        } else if (response.code === 403) {
+          console.log("E-mail em uso")
+        } else {
+          console.log(response.token);
+
+          localStorage.setItem('token', response.token);
+          localStorage.setItem('id', response.id);
+
+          console.log("DEU CERTO AAAAAAAAAA")
         }
-      } 
-    },
-    
-  )}
-  
-  return { handleChange, values, handleSubmit, errors }
+      })
+      .catch((error) => {
+        console.log(error)
+      });
+
+    //setErrors(validate(values))
+  }
+  return { handleChange, handleSubmit }
 }
 
 export default useForm;
