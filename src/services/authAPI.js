@@ -9,7 +9,7 @@ export const signUp = async (name, email, password, role) => {
       email: email,
       password: password,
       role: role,
-      restaurant: 'Burger Things',
+      restaurant: "Burger Things",
     }),
   }).then(res => res.json())
 };
