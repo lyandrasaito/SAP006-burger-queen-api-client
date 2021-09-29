@@ -3,11 +3,11 @@ import logo from '../../img/logo.png'
 import Button from '../../components/button/button.js';
 import Input from '../../components/input/input';
 import './index.css';
-import validation from '../../validation'
-import useForm from './testeForm';
+//import validation from '../../validation'
+import useForm from '../signup/testeForm.js';
 
 const Signup = () => {
-  const { handleChange, handleSubmit, errors } = useForm(validation);
+  const { handleChange, handleSubmit } = useForm();
   return (
     <>
       <div className='content flexBox'>
@@ -19,23 +19,23 @@ const Signup = () => {
             <div className='flexBox'>
               <Input name='name' type='text' placeholder='Nome:' className='field'
                 onChange={handleChange} />
-              <p>{errors.name}</p>
 
               <Input name='email' type='email' placeholder='E-mail:' className='field'
                 onChange={handleChange} />
-              <p>{errors.email}</p>
 
 
               <Input name='password' type='password' placeholder='Senha: ' className='field'
                 onChange={handleChange} />
-              <p>{errors.password}</p>
 
+              <div>
+                <label htmlFor="hall">Salão</label>
+                <input type="radio" name="role" id="hall" text="Salão" value="hall" onChange={handleChange} />
+              </div>
 
-              <select className='field' name="role" id="role">
-                <option value="" selected disabled>Área: </option>
-                <option value="hall">Salão</option>
-                <option value="kitchen">Cozinha</option>
-              </select>
+              <div>
+                <label htmlFor="kitchen">Cozinha</label>
+                <input type="radio" name="role" id="kitchen" text="Cozinha" value="kitchen" onChange={handleChange} />
+              </div>
 
             </div>
             <div className='flexBox'>
