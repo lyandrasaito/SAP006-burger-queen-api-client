@@ -4,7 +4,7 @@ import './index.css';
 import logo from '../../img/logo.png'
 import Button from "../../components/button/button.js";
 import Input from "../../components/input/input.js";
-import useForm from '../login/useForm.js';
+import useForm from './useForm.js';
 //import validation from "../../validation.js";
 
 const Login = () => {

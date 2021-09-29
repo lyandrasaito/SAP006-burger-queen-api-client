@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { signUp } from "../../services/authAPI.js";
+import { useHistory } from "react-router";
 
-const useForm = () => {
+const useForm = (validate) => {
 
   localStorage.clear();
 
@@ -12,7 +13,7 @@ const useForm = () => {
     role: '',
   });
 
-  //const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState({});
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -22,10 +23,14 @@ const useForm = () => {
     });
   };
 
+  const history = useHistory()
+  const handleLogin = () => history.push('/login')
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    signUp(values.name, values.email, values.password, values.role).then((response) => {
+    signUp(values.name, values.email, values.password, values.role)
+    .then((response) => {
         if (response.code === 400) {
           console.log("Dados obrigatórios ausentes")
         } else if (response.code === 403) {
@@ -38,14 +43,15 @@ const useForm = () => {
 
           console.log("DEU CERTO AAAAAAAAAA")
         }
+        handleLogin();
       })
-      .catch((error) => {
-        console.log(error)
+      .catch((errors) => {
+        console.log(errors)
       });
 
-    //setErrors(validate(values))
+    setErrors(validate(values))
   }
-  return { handleChange, handleSubmit }
+  return { handleChange, handleSubmit, errors }
 }
 
 export default useForm;
