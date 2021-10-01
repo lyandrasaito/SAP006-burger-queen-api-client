@@ -40,16 +40,16 @@ const useForm = () => {
     signUp(values.name, values.email, values.password, values.role)
       .then((response) => {
         if (response.code === 400) {
-          console.log("Dados obrigatórios ausentes")
+          alert("Dados obrigatórios ausentes")
         } else if (response.code === 403) {
-          console.log("E-mail em uso")
+          alert("E-mail em uso")
         } else {
           console.log(response.token);
 
           localStorage.setItem('token', response.token);
           localStorage.setItem('id', response.id);
 
-          console.log("DEU CERTO AAAAAAAAAA")
+          alert("Cadastro realizado com sucesso. Efetue o Login")
           handleLogin();
         }
       })
@@ -57,7 +57,7 @@ const useForm = () => {
         console.log(errors)
       });
   }
-  return { handleChange, handleSubmit, errors }
+  return { handleChange, handleSubmit, handleLogin, errors }
 }
 
 export default useForm;

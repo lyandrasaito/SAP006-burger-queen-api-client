@@ -37,7 +37,7 @@ const useForm = () => {
 
     signIn(values.email, values.password).then((response) => {
       if (response.code === 400) {
-        console.log("E-mail e/ou senha inválidos");
+        alert("E-mail e/ou senha inválidos");
       } else {
         localStorage.setItem('token', response.token);
         localStorage.setItem('id', response.id);

@@ -7,7 +7,7 @@ import validation from './signUpValidation.js';
 import useForm from './useForm.js';
 
 const Signup = () => {
-  const { handleChange, handleSubmit, errors } = useForm(validation);
+  const { handleChange, handleSubmit, handleLogin, errors } = useForm(validation);
   return (
     <>
       <div className='content flexBox'>
@@ -42,6 +42,8 @@ const Signup = () => {
               <Button className='button' type='submit' text='Cadastrar' />
             </div>
           </form>
+
+          <Button className='button' onClick={handleLogin} text='Voltar' />
 
         </div>
       </div>
