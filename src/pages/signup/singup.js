@@ -2,7 +2,7 @@ import React from 'react';
 import logo from '../../img/logo.png'
 import Button from '../../components/button/button.js';
 import Input from '../../components/input/input';
-import '../signUp/index.css'
+import './index.css'
 import validation from './signUpValidation.js';
 import useForm from './useForm.js';
 
