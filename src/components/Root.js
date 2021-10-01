@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Login from '../pages/login/index.js';
-import Signup from '../pages/signup/index.js';
-import Kitchen from '../pages/kitchen/index.js';
-import Hall from '../pages/hall/index.js';
-import NotFound from '../pages/notfound/index.js';
-//import PrivateRoute from './privateRoute/index.js';
+import Login from '../pages/login/login.js';
+import Signup from '../pages/signup/singup.js';
+import Kitchen from '../pages/kitchen/kitchen.js';
+import Hall from '../pages/hall/hall.js';
+import NotFound from '../pages/notFound/notFound.js';
+//import PrivateRoute from './privateRoute/privateRoute.js';
 
 const Root = () => {
   return (

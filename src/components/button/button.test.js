@@ -2,8 +2,6 @@ import { render, screen } from '@testing-library/react';
 import user from '@testing-library/user-event';
 import Button from './button.js';
 
-
-
 it('deve renderizar um botão com o texto indicado', () => {
   const texto = "uva";
   render(<Button text="uva"></Button>);
@@ -13,7 +11,6 @@ it('deve renderizar um botão com o texto indicado', () => {
   expect(btn).toBeInTheDocument();
 
 });
-
 
 it('deve disparar uma função de click recebida via prop', () => {
   const texto = "click";
