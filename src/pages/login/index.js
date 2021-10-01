@@ -5,10 +5,10 @@ import logo from '../../img/logo.png'
 import Button from "../../components/button/button.js";
 import Input from "../../components/input/input.js";
 import useForm from '../login/useForm.js';
-//import validation from "../../validation.js";
+import validation from "./loginValidation.js";
 
 const Login = () => {
-  const { handleChange, handleSubmit, handleSignup } = useForm();
+  const { handleChange, handleSubmit, handleSignup, errors } = useForm(validation);
 
   return (
     <>
@@ -20,9 +20,11 @@ const Login = () => {
             <div className='flexBox'>
               <Input name='email' type='email' placeholder='E-mail:'
                 className='field' onChange={handleChange} />
+              <p>{errors.email}</p>
 
               <Input name='password' type='password' placeholder='Senha: '
                 className='field' onChange={handleChange} />
+              <p>{errors.password}</p>
             </div>
             <div className='flexBox'>
               <Button className='button' type='submit' text='Login' />

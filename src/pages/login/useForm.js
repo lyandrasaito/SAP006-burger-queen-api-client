@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { signIn } from "../../services/authAPI";
 import { useHistory } from 'react-router-dom';
+import validation from "./loginValidation";
 
 const useForm = () => {
   localStorage.clear();
@@ -10,7 +11,10 @@ const useForm = () => {
     password: '',
   });
 
-  //const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState({
+    email: '',
+    password: '',
+  });
 
   const history = useHistory();
 
@@ -29,26 +33,28 @@ const useForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    signIn(values.email, values.password).then((response) => {
-        if (response.code === 400) {
-          console.log("E-mail e/ou senha inválidos");
-        } else {          
-          localStorage.setItem('token', response.token);
-          localStorage.setItem('id', response.id);
+    (setErrors(validation(values)));
 
-          if (response.role === "hall") {
-            history.push('/hall')
-          }
-          else if (response.role === "kitchen") {
-            history.push('/kitchen')
-          }
+    signIn(values.email, values.password).then((response) => {
+      if (response.code === 400) {
+        console.log("E-mail e/ou senha inválidos");
+      } else {
+        localStorage.setItem('token', response.token);
+        localStorage.setItem('id', response.id);
+
+        if (response.role === "hall") {
+          history.push('/hall')
         }
-      }).catch((error) => {
-        console.log(error)
-      })
+        else if (response.role === "kitchen") {
+          history.push('/kitchen')
+        }
+      }
+    }).catch((error) => {
+      console.log(error)
+    })
   };
 
-  return { handleChange, handleSubmit, handleSignup };
+  return { handleChange, handleSubmit, handleSignup, errors };
 }
 
 export default useForm;
