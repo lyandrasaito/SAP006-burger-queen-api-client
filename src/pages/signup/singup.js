@@ -2,8 +2,8 @@ import React from 'react';
 import logo from '../../img/logo.png'
 import Button from '../../components/button/button.js';
 import Input from '../../components/input/input';
-import './index.css';
-import validation from '../../validation'
+import '../signUp/index.css'
+import validation from './signUpValidation.js';
 import useForm from './useForm.js';
 
 const Signup = () => {
@@ -19,24 +19,22 @@ const Signup = () => {
             <div className='flexBox'>
               <Input name='name' type='text' placeholder='Nome:' className='field'
                 onChange={handleChange} />
-                <p>{errors.name}</p>
-                
+              <p>{errors.name}</p>
+
               <Input name='email' type='email' placeholder='E-mail:' className='field'
                 onChange={handleChange} />
-                <p>{errors.email}</p>
+              <p>{errors.email}</p>
 
               <Input name='password' type='password' placeholder='Senha: ' className='field'
                 onChange={handleChange} />
-                <p>{errors.password}</p>
+              <p>{errors.password}</p>
 
               <div>
                 <label htmlFor="hall">Salão</label>
                 <input type="radio" name="role" id="hall" text="Salão" value="hall" onChange={handleChange} />
-              </div>
-
-              <div>
                 <label htmlFor="kitchen">Cozinha</label>
                 <input type="radio" name="role" id="kitchen" text="Cozinha" value="kitchen" onChange={handleChange} />
+                <p>{errors.role}</p>
               </div>
 
             </div>

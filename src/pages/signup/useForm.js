@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { signUp } from "../../services/authAPI.js";
 import { useHistory } from "react-router";
+import { validation } from './signUpValidation.js'
 
-const useForm = (validate) => {
+const useForm = () => {
 
   localStorage.clear();
 
@@ -13,7 +14,12 @@ const useForm = (validate) => {
     role: '',
   });
 
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState({
+    name: '',
+    email: '',
+    password: '',
+    role: '',
+  });
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -29,8 +35,10 @@ const useForm = (validate) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    (setErrors(validation(values)));
+
     signUp(values.name, values.email, values.password, values.role)
-    .then((response) => {
+      .then((response) => {
         if (response.code === 400) {
           console.log("Dados obrigatórios ausentes")
         } else if (response.code === 403) {
@@ -42,14 +50,12 @@ const useForm = (validate) => {
           localStorage.setItem('id', response.id);
 
           console.log("DEU CERTO AAAAAAAAAA")
+          handleLogin();
         }
-        handleLogin();
       })
       .catch((errors) => {
         console.log(errors)
       });
-
-    setErrors(validate(values))
   }
   return { handleChange, handleSubmit, errors }
 }
