@@ -1,13 +1,9 @@
 export default function validation(values) {
   let errors = {};
 
-  if (!values.username.trim()) {
-    errors.username = 'Preencha o seu nome';
-  }
-  // else if (!/^[A-Za-z]+/.test(values.name.trim())) {
-  //   errors.name = '';
-  // }
-
+  if (!values.name.trim()) {
+    errors.name = 'Preencha o seu nome';
+  } 
   if (!values.email) {
     errors.email = 'Preencha seu email';
   } else if (!/\S+@\S+\.\S+/.test(values.email)) {

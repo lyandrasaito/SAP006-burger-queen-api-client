@@ -3,11 +3,11 @@ import logo from '../../img/logo.png'
 import Button from '../../components/button/button.js';
 import Input from '../../components/input/input';
 import './index.css';
-//import validation from '../../validation'
-import useForm from '../signup/testeForm.js';
+import validation from '../../validation'
+import useForm from './useForm.js';
 
 const Signup = () => {
-  const { handleChange, handleSubmit } = useForm();
+  const { handleChange, handleSubmit, errors } = useForm(validation);
   return (
     <>
       <div className='content flexBox'>
@@ -19,13 +19,15 @@ const Signup = () => {
             <div className='flexBox'>
               <Input name='name' type='text' placeholder='Nome:' className='field'
                 onChange={handleChange} />
-
+                <p>{errors.name}</p>
+                
               <Input name='email' type='email' placeholder='E-mail:' className='field'
                 onChange={handleChange} />
-
+                <p>{errors.email}</p>
 
               <Input name='password' type='password' placeholder='Senha: ' className='field'
                 onChange={handleChange} />
+                <p>{errors.password}</p>
 
               <div>
                 <label htmlFor="hall">Salão</label>
