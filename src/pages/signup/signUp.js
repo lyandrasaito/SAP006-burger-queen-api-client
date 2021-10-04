@@ -1,12 +1,12 @@
 import React from 'react';
 import logo from '../../img/logo.png'
 import Button from '../../components/button/button.js';
-import Input from '../../components/input/input';
-import './index.css'
+import Input from '../../components/input/input.js';
+import '../../../src/style.css'
 import validation from './signUpValidation.js';
 import useForm from './useForm.js';
 
-const Signup = () => {
+const SignUp = () => {
   const { handleChange, handleSubmit, handleLogin, errors } = useForm(validation);
   return (
     <>
@@ -51,4 +51,4 @@ const Signup = () => {
   )
 }
 
-export default Signup;
+export default SignUp;

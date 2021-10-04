@@ -1,6 +1,6 @@
 import React from "react";
 //import { STORAGE_KEY } from '../../utils/authStorage.js';
-import './index.css';
+import '../../../src/style.css';
 import logo from '../../img/logo.png'
 import Button from "../../components/button/button.js";
 import Input from "../../components/input/input.js";

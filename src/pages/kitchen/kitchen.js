@@ -1,5 +1,5 @@
 import React from "react";
-import './index.css';
+import '../../../src/style.css';
 
 const Kitchen = () => <h1>Cozinha</h1>
 
