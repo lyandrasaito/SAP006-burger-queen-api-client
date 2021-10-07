@@ -18,7 +18,6 @@ export const signUp = async (name, email, password, role) => {
 //parse para pegar info
 
 export const signIn = async (email, password) => {
-  //console.log(email, password)
   return await fetch('https://lab-api-bq.herokuapp.com/auth', {
     method: "POST",
     headers: {

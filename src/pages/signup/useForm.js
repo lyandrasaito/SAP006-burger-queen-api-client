@@ -40,9 +40,9 @@ const useForm = () => {
     signUp(values.name, values.email, values.password, values.role)
       .then((response) => {
         if (response.code === 400) {
-          alert("Dados obrigatórios ausentes")
+          alert("Dados obrigatórios ausentes");
         } else if (response.code === 403) {
-          alert("E-mail em uso")
+          alert("E-mail em uso");
         } else {
           console.log(response.token);
 
