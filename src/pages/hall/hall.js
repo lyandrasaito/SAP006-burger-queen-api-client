@@ -108,7 +108,6 @@ function Hall() {
             </div>
           ))}
         </section>
-
       </section>
 
     </div>
