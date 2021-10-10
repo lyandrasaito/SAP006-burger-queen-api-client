@@ -7,7 +7,7 @@ export default function Menu({ onClick, className, key, id, name, price, flavor,
     <>
       <div className={className} key={key} id={id} price={price}>
         <h1 className="" > {id} {name}</h1>
-        <img src={img} className="productsImage"></img>
+        <img src={img} className="productsImage" alt="banana"></img>
 
         <h1 className="" >  R${price},00</h1>
         <h1 className=""> {flavor}</h1>

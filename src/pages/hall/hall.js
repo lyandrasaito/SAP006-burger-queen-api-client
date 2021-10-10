@@ -27,16 +27,13 @@ function Hall() {
     ).then((json) => {
       setProducts(json)
     })
-  },[token]);
+  });
 
-  useEffect(() => {
-    console.log(table, order,client);
-  },[table, order, client])
 
   // const validationOrder = () => {
   //   let error = {}
   //   error.isFormValid = true
-  
+
   //   if (!client) {
   //     error.client = 'Preencha o nomedo cliente corretamente'
   //     error.isFormValid = false
@@ -50,28 +47,42 @@ function Hall() {
   //     accumulator = Number(qtd * price + accumulator)
   //     return accumulator
   //   }, 0)
-  
+
   //   return totalPrice;
   // }
-  
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // const valid = validationOrder();
     // if(valid.isFormValid){
-      const sendOrder = ({
+
+    const pedido = ({
       "client": client,
       "table": table,
-      "products": order.map((item) => ([{
-        "id":Number(item.id),
-        "qdt":Number(item.qtd)
-      }]))
-      
+      "products":
+        order.map((item) => (
+          {
+            id: Number(item.id),
+            qtd: Number(item.qtd),
+          }))
+
     })
-    postOrder(sendOrder)
-    // }
-    console.log(sendOrder);
+
+    postOrder(pedido);
+
+    // fetch('https://lab-api-bq.herokuapp.com/orders', {
+    //   method: 'POST',
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //     'Authorization': `${token}`,
+    //   },
+    //   body: JSON.stringify(pedido)
+    // })
+    // // }
+    // console.log(pedido);
   }
+
 
   const onChangeClient = (e) => {
     const name = e.target.value;
@@ -159,7 +170,7 @@ function Hall() {
       <div className="hall">
         <section className="">
           <h1>Carrinho</h1>
-          
+
           <Input
             className=""
             placeholder="Nome do cliente: "

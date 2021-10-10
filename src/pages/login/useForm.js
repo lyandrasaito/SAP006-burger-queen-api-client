@@ -41,6 +41,8 @@ const useForm = () => {
       } else {
         localStorage.setItem('token', response.token);
         localStorage.setItem('id', response.id);
+        
+        console.log(response.token)
 
         if (response.role === "hall") {
           history.push('/hall')
