@@ -71,6 +71,8 @@ function Hall() {
 
     postOrder(pedido);
 
+    setOrder([])
+
     // fetch('https://lab-api-bq.herokuapp.com/orders', {
     //   method: 'POST',
     //   headers: {
@@ -172,13 +174,13 @@ function Hall() {
           <h1>Carrinho</h1>
 
           <Input
-            className=""
+            className="cartInput"
             placeholder="Nome do cliente: "
             name="client"
             value={client}
             onChange={onChangeClient} />
 
-          <select onChange={(e) => setTable(e.target.value)} name="Mesa: ">
+          <select onChange={(e) => setTable(e.target.value)} name="Mesa: " className="cartInput">
             <option value="1">Mesa 1</option>
             <option value="2">Mesa 2</option>
             <option value="3">Mesa 3</option>

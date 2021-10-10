@@ -96,3 +96,12 @@ h2 {
 .cart {
   border: 2px solid red;
 }
+
+.cartInput {
+  color: black;
+  border: 2px solid red;
+}
+
+option{
+  color: black;
+}
