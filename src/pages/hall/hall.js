@@ -15,6 +15,12 @@ function Hall() {
   const [menu, setMenu] = useState('all-day');
   const [order, setOrder] = useState([]);
   const [table, setTable] = useState('')
+  const [error, setError] = useState({
+    client: '',
+    table: '',
+    order: '',
+  });
+
 
   useEffect(() => {
     fetch('https://lab-api-bq.herokuapp.com/products', {
@@ -27,76 +33,76 @@ function Hall() {
     ).then((json) => {
       setProducts(json)
     })
-  });
+  }, [token]);
 
 
-  // const validationOrder = () => {
-  //   let error = {}
-  //   error.isFormValid = true
+  const validationOrder = () => {
+    let error = {}
+    error.isFormValid = true
 
-  //   if (!client) {
-  //     error.client = 'Preencha o nomedo cliente corretamente'
-  //     error.isFormValid = false
-  //   }
-  //   return error;
-  // }
+    if (!client) {
+      error.client = 'Informe o nome do cliente'
+      error.isFormValid = false
+    }
+    if (!table || table >= 5) {
+      error.table = 'Escolha uma mesa de 1 a 5'
+      error.isFormValid = false
+    }
+    if (order.length === 0) {
+      error.order = 'Insira itens no carrinho';
+      error.isFormValid = false
+    }
+    return error
+  }
 
-  // const calculateTotal = (items) => {
-  //   const totalPrice = items.reduce((accumulator, array) => {
-  //     const { qtd, price } = array;
-  //     accumulator = Number(qtd * price + accumulator)
-  //     return accumulator
-  //   }, 0)
+  const total = (items) => {
+    const totalPrice = items.reduce((accumulator, array) => {
+      const { qtd, price } = array;
+      accumulator = Number(qtd * price + accumulator)
+      return accumulator
+    }, 0)
 
-  //   return totalPrice;
-  // }
+    return totalPrice;
+  }
 
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // const valid = validationOrder();
-    // if(valid.isFormValid){
+    const valid = validationOrder()
+    setError(valid)
+    if (valid.isFormValid) {
+      const orderValues = ({
+        "client": client,
+        "table": table,
+        "products":
+          order.map((item) => (
+            {
+              id: Number(item.id),
+              qtd: Number(item.qtd),
+            }))
 
-    const pedido = ({
-      "client": client,
-      "table": table,
-      "products":
-        order.map((item) => (
-          {
-            id: Number(item.id),
-            qtd: Number(item.qtd),
-          }))
+      })
 
-    })
+      postOrder(orderValues);
 
-    postOrder(pedido);
-
-    setOrder([])
-
-    // fetch('https://lab-api-bq.herokuapp.com/orders', {
-    //   method: 'POST',
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //     'Authorization': `${token}`,
-    //   },
-    //   body: JSON.stringify(pedido)
-    // })
-    // // }
-    // console.log(pedido);
+      setOrder([]);
+      setClient([]);
+      setTable([]);
+    } else {
+    }
   }
 
 
-  const onChangeClient = (e) => {
-    const name = e.target.value;
-    setClient(name);
-  };
+  // const onChangeClient = (e) => {
+  //   const name = e.target.value;
+  //   setClient(name);
+  // };
 
   const history = useHistory();
   const handleSignOut = (e) => {
     e.preventDefault();
     history.push('/login')
     localStorage.clear();
-    alert("xau");
   }
 
   const selectedProducts = products.filter((prod) => prod.type === menu)
@@ -178,15 +184,18 @@ function Hall() {
             placeholder="Nome do cliente: "
             name="client"
             value={client}
-            onChange={onChangeClient} />
+            onChange={(e) => setClient(e.target.value)}  />
 
           <select onChange={(e) => setTable(e.target.value)} name="Mesa: " className="cartInput">
+            <option defaultValue>Mesa: </option>
             <option value="1">Mesa 1</option>
             <option value="2">Mesa 2</option>
             <option value="3">Mesa 3</option>
             <option value="4">Mesa 4</option>
             <option value="5">Mesa 5</option>
           </select>
+
+          <div>{error.order && <p>{error.order}</p>} </div>
 
           {order.map((item, index) =>
             <div key={index}>
@@ -202,8 +211,7 @@ function Hall() {
 
           )}
 
-          {/* <p className="total">Total: R$ {calculateTotal(order)},00</p> */}
-
+          <p className="total">Total: R$ {total(order)},00</p>
 
           <Button className="button" text="Despachar para a cozinha" onClick={(e) => handleSubmit(e)} />
 

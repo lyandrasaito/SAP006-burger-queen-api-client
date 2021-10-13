@@ -90,7 +90,7 @@ h2 {
 
 .productsImage {
   width: 100px;
-  
+  max-height: 68px;
 }
 
 .cart {

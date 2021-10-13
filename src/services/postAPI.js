@@ -12,7 +12,7 @@
 //     .catch(e => console.log(e))
 // };
 
-export const postOrder = async (pedido) => {
+export const postOrder = async (orderValues) => {
   const token = localStorage.getItem('token');
   return await fetch('https://lab-api-bq.herokuapp.com/orders', {
     method: 'POST',
@@ -20,7 +20,7 @@ export const postOrder = async (pedido) => {
       "Content-Type": "application/json",
       'Authorization': `${token}`,
     },
-    body: JSON.stringify(pedido)
+    body: JSON.stringify(orderValues)
   })
 }
 
