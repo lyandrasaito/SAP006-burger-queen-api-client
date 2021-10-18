@@ -110,7 +110,7 @@ function Hall() {
     }
     return error;
   }
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const valid = inputValidation();
