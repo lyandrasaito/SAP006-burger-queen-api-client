@@ -8,7 +8,7 @@ export const validation = (values) => {
   if (!values.email) {
     errors.email = 'Preencha seu email';
   } else if (!/\S+@\S+\.\S+/.test(values.email)) {
-    errors.email = 'Email inválido. Tente novamente';
+    errors.email = 'Formato de e-mail inválido. Tente novamente';
   }
   if (!values.password) {
     errors.password = 'Preencha com uma senha';
