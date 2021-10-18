@@ -19,22 +19,22 @@ const SignUp = () => {
             <div className='flexBox'>
               <Input name='name' type='text' placeholder='Nome:' className='field'
                 onChange={handleChange} />
-              <p>{errors.name}</p>
+              <p className="error-msg">{errors.name}</p>
 
               <Input name='email' type='email' placeholder='E-mail:' className='field'
                 onChange={handleChange} />
-              <p>{errors.email}</p>
+              <p className="error-msg">{errors.email}</p>
 
               <Input name='password' type='password' placeholder='Senha: ' className='field'
                 onChange={handleChange} />
-              <p>{errors.password}</p>
+              <p className="error-msg">{errors.password}</p>
 
               <div>
                 <label htmlFor="hall">Salão</label>
                 <input type="radio" name="role" id="hall" text="Salão" value="hall" onChange={handleChange} />
                 <label htmlFor="kitchen">Cozinha</label>
                 <input type="radio" name="role" id="kitchen" text="Cozinha" value="kitchen" onChange={handleChange} />
-                <p>{errors.role}</p>
+                <p className="error-msg">{errors.role}</p>
               </div>
 
             </div>
