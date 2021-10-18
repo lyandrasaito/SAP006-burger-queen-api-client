@@ -9,18 +9,17 @@ import { postOrder } from '../../services/postAPI.js';
 
 function Hall() {
   const token = localStorage.getItem('token');
-
   const [client, setClient] = useState('');
   const [products, setProducts] = useState([]);
   const [menu, setMenu] = useState('all-day');
   const [order, setOrder] = useState([]);
-  const [table, setTable] = useState('')
+  const [table, setTable] = useState('');
+  const [selectTable, setSelectTable] = useState('');
   const [error, setError] = useState({
     client: '',
     table: '',
     order: '',
   });
-
 
   useEffect(() => {
     fetch('https://lab-api-bq.herokuapp.com/products', {
@@ -34,69 +33,6 @@ function Hall() {
       setProducts(json)
     })
   }, [token]);
-
-
-  const validationOrder = () => {
-    let error = {}
-    error.isFormValid = true
-
-    if (!client) {
-      error.client = 'Informe o nome do cliente'
-      error.isFormValid = false
-    }
-    if (!table || table >= 5) {
-      error.table = 'Escolha uma mesa de 1 a 5'
-      error.isFormValid = false
-    }
-    if (order.length === 0) {
-      error.order = 'Insira itens no carrinho';
-      error.isFormValid = false
-    }
-    return error
-  }
-
-  const total = (items) => {
-    const totalPrice = items.reduce((accumulator, array) => {
-      const { qtd, price } = array;
-      accumulator = Number(qtd * price + accumulator)
-      return accumulator
-    }, 0)
-
-    return totalPrice;
-  }
-
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const valid = validationOrder()
-    setError(valid)
-    if (valid.isFormValid) {
-      const orderValues = ({
-        "client": client,
-        "table": table,
-        "products":
-          order.map((item) => (
-            {
-              id: Number(item.id),
-              qtd: Number(item.qtd),
-            }))
-
-      })
-
-      postOrder(orderValues);
-
-      setOrder([]);
-      setClient([]);
-      setTable([]);
-    } else {
-    }
-  }
-
-
-  // const onChangeClient = (e) => {
-  //   const name = e.target.value;
-  //   setClient(name);
-  // };
 
   const history = useHistory();
   const handleSignOut = (e) => {
@@ -136,11 +72,66 @@ function Hall() {
       setOrder([...order])
     }
     if (element.qtd === 0) {
-      // alert("banana")
       const listOrder = order;
       // remove 1 item do array
       listOrder.splice(index, 1);
       setOrder([...listOrder])
+    }
+  }
+
+  const handleChange = (e) => {
+    setTable(e.target.value)
+    setSelectTable(e.target.value)
+  }
+
+  const total = (items) => {
+    const totalPrice = items.reduce((accumulator, array) => {
+      const { qtd, price } = array;
+      accumulator = Number(qtd * price + accumulator)
+      return accumulator
+    }, 0)
+    return totalPrice;
+  }
+
+  const inputValidation = () => {
+    let error = {};
+    error.notNull = true;
+    if (order.length === 0) {
+      error.order = 'Insira itens no carrinho';
+      error.notNull = false;
+    }
+    if (!client) {
+      error.client = 'Informe o nome do cliente';
+      error.notNull = false;
+    }
+    if (!table || table >= 5) {
+      error.table = 'Escolha uma mesa de 1 a 5';
+      error.notNull = false;
+    }
+    return error;
+  }
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const valid = inputValidation();
+    setError(valid)
+    if (valid.notNull) {
+      const orderValues = ({
+        "client": client,
+        "table": table,
+        "products":
+          order.map((item) => (
+            {
+              id: Number(item.id),
+              qtd: Number(item.qtd),
+            }))
+      })
+      postOrder(orderValues);
+      setOrder([]);
+      setClient([]);
+      setSelectTable('');
+    } else {
+      alert("deu ruim")
     }
   }
 
@@ -161,7 +152,6 @@ function Hall() {
             <div className="banana" key={index}>
               <div>
                 <Menu
-                  className="card"
                   name={item.name}
                   img={item.image}
                   price={item.price}
@@ -184,9 +174,9 @@ function Hall() {
             placeholder="Nome do cliente: "
             name="client"
             value={client}
-            onChange={(e) => setClient(e.target.value)}  />
+            onChange={(e) => setClient(e.target.value)} />
 
-          <select onChange={(e) => setTable(e.target.value)} name="Mesa: " className="cartInput">
+          <select onChange={handleChange} value={selectTable} name="Mesa: " className="cartInput">
             <option defaultValue>Mesa: </option>
             <option value="1">Mesa 1</option>
             <option value="2">Mesa 2</option>
@@ -196,6 +186,9 @@ function Hall() {
           </select>
 
           <div>{error.order && <p>{error.order}</p>} </div>
+          <div>{error.table && <p>{error.table}</p>} </div>
+          <div>{error.client && <p>{error.client}</p>} </div>
+
 
           {order.map((item, index) =>
             <div key={index}>
@@ -213,7 +206,7 @@ function Hall() {
 
           <p className="total">Total: R$ {total(order)},00</p>
 
-          <Button className="button" text="Despachar para a cozinha" onClick={(e) => handleSubmit(e)} />
+          <Button className="button" text="Despachar" onClick={(e) => handleSubmit(e)} />
 
         </section>
 
