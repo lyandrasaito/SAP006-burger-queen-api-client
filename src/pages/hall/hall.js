@@ -140,7 +140,7 @@ function Hall() {
       <section className="menu">
         <h1>Cardápio</h1>
 
-        <section className="" >
+        <section className="products-btn" >
           <Button text="All Day" className='button' onClick={() => { setMenu('all-day'); }} />
           <Button text="Café da manhã" className='button' onClick={() => { setMenu('breakfast'); }} />
           <Button text="Pedidos prontos" className='button' onClick={() => { setMenu('breakfast'); }} />
@@ -148,7 +148,7 @@ function Hall() {
           <Button text="Sair" className='button' onClick={handleSignOut} />
         </section>
 
-        <section>
+        <section className="products">
           {/* verificação */}
           {selectedProducts && selectedProducts.map((item, index) => (
             <div className="card" key={index}>
@@ -168,17 +168,17 @@ function Hall() {
 
     </div>
       <div className="container">
-        <section className="">
+        <section className="client-info">
           <h1>Carrinho</h1>
 
           <Input
-            className="cartInput"
+            className="cartInput field"
             placeholder="Nome do cliente: "
             name="client"
             value={client}
             onChange={(e) => setClient(e.target.value)} />
 
-          <select onChange={handleChange} value={selectTable} name="Mesa: " className="cartInput">
+          <select onChange={handleChange} value={selectTable} name="Mesa: " className="cartInput field select-table">
             <option defaultValue>Mesa: </option>
             <option value="1">Mesa 1</option>
             <option value="2">Mesa 2</option>
@@ -187,9 +187,9 @@ function Hall() {
             <option value="5">Mesa 5</option>
           </select>
 
-          <div>{error.order && <p>{error.order}</p>} </div>
-          <div>{error.table && <p>{error.table}</p>} </div>
-          <div>{error.client && <p>{error.client}</p>} </div>
+          <div>{error.order && <p className="error-msg">{error.order}</p>} </div>
+          <div>{error.table && <p className="error-msg">{error.table}</p>} </div>
+          <div>{error.client && <p className="error-msg">{error.client}</p>} </div>
 
 
           {order.map((item, index) =>
@@ -201,6 +201,7 @@ function Hall() {
                 qtd={item.qtd}
                 flavor={item.flavor}
                 complement={item.complement}
+
                 onClick={(e) => handleRemove(e, item, index)} />
             </div>
 

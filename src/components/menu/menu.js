@@ -6,12 +6,10 @@ export default function Menu({ onClick, className, key, id, name, price, flavor,
   return (
     <>
       <div className={className} key={key} id={id} price={price}>
-        <h1 className="" > {id} {name}</h1>
-        <img src={img} className="productsImage" alt="imagem do produto"></img>
-
+        <h1 className="" > {id} {name}  </h1>
+        <h1 className="">{flavor} {complement} </h1>
+        <img src={img} className="productsImage" alt="banana"></img>
         <h1 className="" >  R${price},00</h1>
-        <h1 className=""> {flavor}</h1>
-        <h1 className=""> {complement}</h1>
 
         <Button onClick={onClick} className="button buttonAdd" text="+" />
       </div>
