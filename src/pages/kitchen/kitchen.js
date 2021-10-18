@@ -54,7 +54,7 @@ function Kitchen() {
   };
 
   return (
-    <div className="hall">
+    <div className="container">
       <section className="menu">
         <h1>Pedidos</h1>
 
@@ -67,8 +67,8 @@ function Kitchen() {
           {orderStatus.map((order) => {
             return (
               <section className="menu" key={order.id}>
-                <div className="banana">
-                  <h1> {order.status.replace('pending', 'Pendente').replace('preparing', 'Em andamento').replace('done', 'Pronto')} </h1>
+                <div className="card">
+                  <h1> {order.status.replace('pending', 'Pendente').replace('preparing', 'Em andamento')} </h1>
                   <p>ID: {order.id} </p>
                   <p>Cliente: {order.client_name} </p>
                   <p>Mesa: {order.table} </p>

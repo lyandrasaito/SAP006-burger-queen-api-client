@@ -136,7 +136,7 @@ function Hall() {
   }
 
   return (
-    <><div className="hall">
+    <><div className="container">
       <section className="menu">
         <h1>Cardápio</h1>
 
@@ -149,7 +149,7 @@ function Hall() {
         <section>
           {/* verificação */}
           {selectedProducts && selectedProducts.map((item, index) => (
-            <div className="banana" key={index}>
+            <div className="card" key={index}>
               <div>
                 <Menu
                   name={item.name}
@@ -165,7 +165,7 @@ function Hall() {
       </section>
 
     </div>
-      <div className="hall">
+      <div className="container">
         <section className="">
           <h1>Carrinho</h1>
 
