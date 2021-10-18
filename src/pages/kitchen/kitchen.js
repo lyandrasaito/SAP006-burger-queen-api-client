@@ -53,13 +53,22 @@ function Kitchen() {
       });
   };
 
+  const ready = () => {
+    history.push('/ready')
+  }
+
+  const kitchen = () => {
+    history.push('/kitchen')
+  }
+
   return (
-    <div className="container">
+    <div className="container kitchenContainer">
       <section className="menu">
         <h1>Pedidos</h1>
 
         <section className="" >
-          <Button text="Sair" className='button' onClick={handleSignOut} />
+          <Button text="Início" className='button' onClick={kitchen} />
+          <Button text="Despachados" className='button' onClick={ready} />
           <Button text="Sair" className='button' onClick={handleSignOut} />
         </section>
 
@@ -67,7 +76,7 @@ function Kitchen() {
           {orderStatus.map((order) => {
             return (
               <section className="menu" key={order.id}>
-                <div className="card">
+                <div className="card kitchenCard">
                   <h1> {order.status.replace('pending', 'Pendente').replace('preparing', 'Em andamento')} </h1>
                   <p>ID: {order.id} </p>
                   <p>Cliente: {order.client_name} </p>
@@ -78,9 +87,19 @@ function Kitchen() {
                       minute: '2-digit',
                     })}h`}
                   </time>
+                  <hr />
+                  {order.Products.map((items, index) => (
+                    <div key={index}>
+                      <p> {items.qtd} {items.name}</p>
+                      <p>{items.flavor}</p>
+                      <p>{items.complement}</p>
+                      <hr />
+                    </div>
+                  ))}
+
 
                   <Button text="Preparar" className='button' onClick={() => setStatus(order.id, 'preparing')} />
-                  <Button text="Despachar" className='button' onClick={() => setStatus(order.id, 'done')} />
+                  <Button text="Despachar" className='button' onClick={() => setStatus(order.id, 'ready')} />
 
                 </div>
               </section>

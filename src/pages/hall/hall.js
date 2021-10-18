@@ -143,6 +143,8 @@ function Hall() {
         <section className="" >
           <Button text="All Day" className='button' onClick={() => { setMenu('all-day'); }} />
           <Button text="Café da manhã" className='button' onClick={() => { setMenu('breakfast'); }} />
+          <Button text="Pedidos prontos" className='button' onClick={() => { setMenu('breakfast'); }} />
+          <Button text="Pedidos entregues" className='button' onClick={() => { setMenu('breakfast'); }} />
           <Button text="Sair" className='button' onClick={handleSignOut} />
         </section>
 
@@ -156,7 +158,7 @@ function Hall() {
                   img={item.image}
                   price={item.price}
                   flavor={item.flavor}
-                  complement={item.complement}
+                  complement={item.complement === 'null' ? 'banana' : item.complement}
                   onClick={(e) => handleAdd(e, item)} />
               </div>
             </div>

@@ -37,6 +37,12 @@ h2 {
   display: inline-flex;
 }
 
+.kitchenContainer {
+
+  width: 90%;
+
+}
+
 .card {
   border: 2px solid var(--red);
   background-color: var(--gray);
@@ -46,6 +52,11 @@ h2 {
   padding: 5px;
   margin: 5px;
 }
+
+.kitchenCard{
+  width: 50%;
+}
+
 
 .flexBox {
   display: flex;
@@ -94,12 +105,12 @@ h2 {
 }
 
 .cart {
-  border: 2px solid red;
+  border: 2px solid var(--blue);
 }
 
 .cartInput {
   color: black;
-  border: 2px solid red;
+  border: 2px solid var(--red);
 }
 
 option {
