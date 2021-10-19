@@ -28,7 +28,7 @@ h2 {
   /* min-height: 450px; */
 }
 
-.hall {
+.container {
   padding: 25px;
   margin: 25px;
   width: 40%;
@@ -37,11 +37,30 @@ h2 {
   display: inline-flex;
 }
 
-.banana {
+.kitchenContainer {
+  padding: 25px;
+  margin: 25px;
+  width: 90%;
+  border: 2px solid var(--red);
+  border-radius: 5px;
+  display: inline-flex;
+}
+
+.card {
   border: 2px solid var(--red);
   background-color: var(--gray);
   border-radius: 5px;
-  width: 150px;
+  width: 175px;
+  display: inline-block;
+  padding: 5px;
+  margin: 5px;
+}
+
+.kitchenCard {
+  border: 2px solid var(--red);
+  background-color: var(--gray);
+  border-radius: 5px;
+  width: 175px;
   display: inline-block;
   padding: 5px;
   margin: 5px;
@@ -55,7 +74,7 @@ h2 {
 }
 
 .logo {
-  width: 50%;
+  width: 20%;
   display: flex;
 }
 
@@ -93,15 +112,96 @@ h2 {
   max-height: 68px;
 }
 
-.cart {
-  border: 2px solid red;
-}
-
 .cartInput {
-  color: black;
-  border: 2px solid red;
+  color: white;
+  border: 2px solid var(--red);
 }
 
-option{
-  color: black;
+::placeholder {
+  color: white;
+}
+
+option {
+  color: white;
+}
+
+.error-msg {
+  color: var(--red);
+}
+
+.products-btn {
+  text-align: center;
+  margin: 5px;
+}
+
+.products {
+  text-align: center;
+  margin: 2px;
+}
+
+@media (min-width:320px) {
+  /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+}
+
+@media (min-width:480px) {
+  /* smartphones, Android phones, landscape iPhone */
+}
+
+@media (min-width:600px) {
+  .container {
+    padding: 22px;
+    margin: 20px;
+    width: 38%;
+    min-height: 920px;
+  }
+  .cartInput {
+    width: 125px;
+    height: 38px;
+  }
+  .select-table {
+    height: 52px;
+  }
+}
+
+@media (min-width:801px) {
+  .container {
+    padding: 25px;
+    margin: 22px;
+    width: 40%;
+    min-height: 650px;
+  }
+  .client-info {
+    justify-content: space-between;
+  }
+  .cartInput {
+    width: 165px;
+    height: 38px;
+  }
+  .select-table {
+    height: 52px;
+  }
+}
+
+@media (min-width:1025px) {
+  .container {
+    min-height: 540px;
+  }
+  .card {
+    margin: 5px 20px 5px 20px;
+  }
+}
+
+@media (min-width:1281px) {
+  .container {
+    width: 41%;
+    min-height: 900px;
+    margin: 33px;
+  }
+  .cartInput {
+    width: 200px;
+    height: 43px;
+  }
+  .select-table {
+    height: 58px;
+  }
 }

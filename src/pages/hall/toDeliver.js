@@ -1,11 +1,10 @@
-import React from "react";
-import { useState, useEffect } from 'react';
-import '../../../src/style.css';
-import Button from "../../components/button/button";
+import React, { useEffect, useState } from 'react';
+import Button from '../../components/button/button';
 import { useHistory } from 'react-router-dom';
+import '../../../src/style.css';
 import logo from '../../img/logo.png'
 
-function Kitchen() {
+function ToDeliver() {
   const token = localStorage.getItem('token');
   const [orderStatus, setOrderStatus] = useState([]);
   const url = 'https://lab-api-bq.herokuapp.com/orders/';
@@ -21,20 +20,11 @@ function Kitchen() {
       .then((response) => response.json())
       .then((orders) => {
         const status = orders.filter((itens) =>
-          itens.status.includes('preparing') ||
-          itens.status.includes('pending') ||
-          itens.status.includes('done')
+          itens.status.includes('ready')
         );
         setOrderStatus(status);
       });
   })
-
-  const history = useHistory();
-  const handleSignOut = (e) => {
-    e.preventDefault();
-    history.push('/login')
-    localStorage.clear();
-  }
 
   const setStatus = (id, newStatus) => {
     const status = { status: newStatus };
@@ -54,32 +44,44 @@ function Kitchen() {
       });
   };
 
-  const ready = () => {
-    history.push('/ready')
+  const toDeliver = () => {
+    history.push('/todeliver')
   }
 
-  const kitchen = () => {
-    history.push('/kitchen')
+  const delivered = () => {
+    history.push('/delivered')
+  }
+
+  const history = useHistory();
+  const handleSignOut = (e) => {
+    e.preventDefault();
+    history.push('/login')
+    localStorage.clear();
+  }
+
+  const home = () => {
+    history.push('/hall')
   }
 
   return (
     <><img src={logo} alt='logo' className="logo" />
-      <div className="kitchenContainer">
+      <div className="container kitchenContainer">
         <section className="menu">
-          <h1>Pedidos</h1>
+          <h1>Pedidos para entregar</h1>
 
           <section className="products-btn">
-            <Button text="Início" className='button' onClick={kitchen} />
-            <Button text="Despachados" className='button' onClick={ready} />
+            <Button text="Início" className='button' onClick={home} />
+            <Button text="Prontos para servir" className='button' onClick={toDeliver} />
+            <Button text="Pedidos entregues" className='button' onClick={delivered} />
             <Button text="Sair" className='button' onClick={handleSignOut} />
           </section>
 
           <section>
             {orderStatus.map((order) => {
               return (
-                <section className="products" key={order.id}>
-                  <div className="kitchenCard">
-                    <h1> {order.status.replace('pending', 'Pendente').replace('preparing', 'Em andamento')} </h1>
+                <section className="menu" key={order.id}>
+                  <div className="card kitchenCard">
+                    <h1> {order.status.replace('ready', 'Para servir')} </h1>
                     <p>ID: {order.id} </p>
                     <p>Cliente: {order.client_name} </p>
                     <p>Mesa: {order.table} </p>
@@ -99,8 +101,7 @@ function Kitchen() {
                       </div>
                     ))}
 
-                    <Button text="Preparar" className='button' onClick={() => setStatus(order.id, 'preparing')} />
-                    <Button text="Despachar" className='button' onClick={() => setStatus(order.id, 'ready')} />
+                    <Button text="Servir" className='button' onClick={() => setStatus(order.id, 'delivered')} />
 
                   </div>
                 </section>
@@ -113,5 +114,4 @@ function Kitchen() {
   );
 }
 
-
-export default Kitchen;
+export default ToDeliver;

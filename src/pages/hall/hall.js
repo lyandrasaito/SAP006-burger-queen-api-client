@@ -6,6 +6,7 @@ import '../../../src/style.css';
 import Cart from '../../components/cart/cart.js';
 import { useHistory } from 'react-router-dom';
 import { postOrder } from '../../services/postAPI.js';
+import logo from '../../img/logo.png'
 
 function Hall() {
   const token = localStorage.getItem('token');
@@ -34,13 +35,6 @@ function Hall() {
     })
   }, [token]);
 
-  const history = useHistory();
-  const handleSignOut = (e) => {
-    e.preventDefault();
-    history.push('/login')
-    localStorage.clear();
-  }
-
   const selectedProducts = products.filter((prod) => prod.type === menu)
 
   const handleAdd = (e, item) => {
@@ -52,7 +46,6 @@ function Hall() {
       element.qtd += 1;
       setOrder([...order])
       //mapeia a quantidade e se o id selecionado for o mesmo do id do produto, adiciona 1
-      // setOrder(quant => quant.map(resp => resp.id === element.id ? element : resp))
     } else {
       //não tendo ainda o item, cria 1
       item.qtd = 1;
@@ -79,11 +72,6 @@ function Hall() {
     }
   }
 
-  const handleChange = (e) => {
-    setTable(e.target.value)
-    setSelectTable(e.target.value)
-  }
-
   const total = (items) => {
     const totalPrice = items.reduce((accumulator, array) => {
       const { qtd, price } = array;
@@ -91,6 +79,11 @@ function Hall() {
       return accumulator
     }, 0)
     return totalPrice;
+  }
+
+  const handleChange = (e) => {
+    setTable(e.target.value)
+    setSelectTable(e.target.value)
   }
 
   const inputValidation = () => {
@@ -104,7 +97,7 @@ function Hall() {
       error.client = 'Informe o nome do cliente';
       error.notNull = false;
     }
-    if (!table || table >= 5) {
+    if (!table || table > 5) {
       error.table = 'Escolha uma mesa de 1 a 5';
       error.notNull = false;
     }
@@ -130,53 +123,70 @@ function Hall() {
       setOrder([]);
       setClient([]);
       setSelectTable('');
-    } else {
-      alert("deu ruim")
     }
   }
 
+  const toDeliver = () => {
+    history.push('/todeliver')
+  }
+
+  const delivered = () => {
+    history.push('/delivered')
+  }
+
+  const history = useHistory();
+  const handleSignOut = (e) => {
+    e.preventDefault();
+    history.push('/login')
+    localStorage.clear();
+  }
+
+
   return (
-    <><div className="hall">
-      <section className="menu">
-        <h1>Cardápio</h1>
+    <>
+      <img src={logo} alt='logo' className="logo"/>
+      <div className="container">
+        <section className="menu">
 
-        <section className="" >
-          <Button text="All Day" className='button' onClick={() => { setMenu('all-day'); }} />
-          <Button text="Café da manhã" className='button' onClick={() => { setMenu('breakfast'); }} />
-          <Button text="Sair" className='button' onClick={handleSignOut} />
-        </section>
+          <section className="products-btn" >
+            <Button text="All Day" className='button' onClick={() => { setMenu('all-day'); }} />
+            <Button text="Café da manhã" className='button' onClick={() => { setMenu('breakfast'); }} />
+            <Button text="Prontos para servir" className='button' onClick={toDeliver} />
+            <Button text="Pedidos entregues" className='button' onClick={delivered} />
+            <Button text="Sair" className='button' onClick={handleSignOut} />
+          </section>
 
-        <section>
-          {/* verificação */}
-          {selectedProducts && selectedProducts.map((item, index) => (
-            <div className="banana" key={index}>
-              <div>
-                <Menu
-                  name={item.name}
-                  img={item.image}
-                  price={item.price}
-                  flavor={item.flavor}
-                  complement={item.complement}
-                  onClick={(e) => handleAdd(e, item)} />
+          <section className="products">
+            {/* verificação */}
+            {selectedProducts && selectedProducts.map((item, index) => (
+              <div className="card" key={index}>
+                <div>
+                  <Menu
+                    name={item.name}
+                    img={item.image}
+                    price={item.price}
+                    flavor={item.flavor}
+                    complement={item.complement === 'null' ? 'banana' : item.complement}
+                    onClick={(e) => handleAdd(e, item)} />
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </section>
         </section>
-      </section>
 
-    </div>
-      <div className="hall">
-        <section className="">
+      </div>
+      <div className="container">
+        <section className="client-info">
           <h1>Carrinho</h1>
 
           <Input
-            className="cartInput"
+            className="cartInput field"
             placeholder="Nome do cliente: "
             name="client"
             value={client}
             onChange={(e) => setClient(e.target.value)} />
 
-          <select onChange={handleChange} value={selectTable} name="Mesa: " className="cartInput">
+          <select onChange={handleChange} value={selectTable} name="Mesa: " className="cartInput field select-table">
             <option defaultValue>Mesa: </option>
             <option value="1">Mesa 1</option>
             <option value="2">Mesa 2</option>
@@ -185,9 +195,9 @@ function Hall() {
             <option value="5">Mesa 5</option>
           </select>
 
-          <div>{error.order && <p>{error.order}</p>} </div>
-          <div>{error.table && <p>{error.table}</p>} </div>
-          <div>{error.client && <p>{error.client}</p>} </div>
+          <div>{error.order && <p className="error-msg">{error.order}</p>} </div>
+          <div>{error.table && <p className="error-msg">{error.table}</p>} </div>
+          <div>{error.client && <p className="error-msg">{error.client}</p>} </div>
 
 
           {order.map((item, index) =>
@@ -199,6 +209,7 @@ function Hall() {
                 qtd={item.qtd}
                 flavor={item.flavor}
                 complement={item.complement}
+
                 onClick={(e) => handleRemove(e, item, index)} />
             </div>
 

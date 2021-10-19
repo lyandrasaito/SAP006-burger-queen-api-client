@@ -8,7 +8,7 @@ export default function Cart({ className, key, id, name, price, flavor, compleme
       <div className={className} key={key} id={id} price={price} qtd={qtd}>
         <div>
           <h1 className="" > {id} {name}</h1>
-          <img src={img} className="productsImage" alt="banana"></img>
+          <img src={img} className="productsImage" alt="imagem do produto"></img>
         </div>
         <div className="">
           Valor unitário: R${price},00 |

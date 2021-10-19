@@ -20,11 +20,11 @@ const Login = () => {
             <div className='flexBox'>
               <Input name='email' type='email' placeholder='E-mail:'
                 className='field' onChange={handleChange} />
-              <p>{errors.email}</p>
+              <p className="error-msg">{errors.email}</p>
 
               <Input name='password' type='password' placeholder='Senha: '
                 className='field' onChange={handleChange} />
-              <p>{errors.password}</p>
+              <p className="error-msg">{errors.password}</p>
             </div>
             <div className='flexBox'>
               <Button className='button' type='submit' text='Login' />
