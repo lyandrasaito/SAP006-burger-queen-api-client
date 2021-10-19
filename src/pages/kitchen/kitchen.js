@@ -78,7 +78,7 @@ function Kitchen() {
             {orderStatus.map((order) => {
               return (
                 <section className="products" key={order.id}>
-                  <div className="card">
+                  <div className="kitchenCard">
                     <h1> {order.status.replace('pending', 'Pendente').replace('preparing', 'Em andamento')} </h1>
                     <p>ID: {order.id} </p>
                     <p>Cliente: {order.client_name} </p>
