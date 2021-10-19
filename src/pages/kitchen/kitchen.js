@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import '../../../src/style.css';
 import Button from "../../components/button/button";
 import { useHistory } from 'react-router-dom';
+import logo from '../../img/logo.png'
 
 function Kitchen() {
   const token = localStorage.getItem('token');
@@ -62,53 +63,53 @@ function Kitchen() {
   }
 
   return (
-    <div className="container kitchenContainer">
-      <section className="menu">
-        <h1>Pedidos</h1>
+    <><img src={logo} alt='logo' className="logo" />
+      <div className="kitchenContainer">
+        <section className="menu">
+          <h1>Pedidos</h1>
 
-        <section className="" >
-          <Button text="Início" className='button' onClick={kitchen} />
-          <Button text="Despachados" className='button' onClick={ready} />
-          <Button text="Sair" className='button' onClick={handleSignOut} />
+          <section className="products-btn">
+            <Button text="Início" className='button' onClick={kitchen} />
+            <Button text="Despachados" className='button' onClick={ready} />
+            <Button text="Sair" className='button' onClick={handleSignOut} />
+          </section>
+
+          <section>
+            {orderStatus.map((order) => {
+              return (
+                <section className="products" key={order.id}>
+                  <div className="card">
+                    <h1> {order.status.replace('pending', 'Pendente').replace('preparing', 'Em andamento')} </h1>
+                    <p>ID: {order.id} </p>
+                    <p>Cliente: {order.client_name} </p>
+                    <p>Mesa: {order.table} </p>
+                    <time>
+                      {`${new Date(order.createdAt).toLocaleDateString('pt-br')} - ${new Date(order.createdAt).toLocaleTimeString('pt-br', {
+                        hour: '2-digit',
+                        minute: '2-digit',
+                      })}h`}
+                    </time>
+                    <hr />
+                    {order.Products.map((items, index) => (
+                      <div key={index}>
+                        <p> {items.qtd} {items.name}</p>
+                        <p>{items.flavor}</p>
+                        <p>{items.complement}</p>
+                        <hr />
+                      </div>
+                    ))}
+
+                    <Button text="Preparar" className='button' onClick={() => setStatus(order.id, 'preparing')} />
+                    <Button text="Despachar" className='button' onClick={() => setStatus(order.id, 'ready')} />
+
+                  </div>
+                </section>
+              );
+            })}
+          </section>
         </section>
 
-        <section>
-          {orderStatus.map((order) => {
-            return (
-              <section className="menu" key={order.id}>
-                <div className="card kitchenCard">
-                  <h1> {order.status.replace('pending', 'Pendente').replace('preparing', 'Em andamento')} </h1>
-                  <p>ID: {order.id} </p>
-                  <p>Cliente: {order.client_name} </p>
-                  <p>Mesa: {order.table} </p>
-                  <time>
-                    {`${new Date(order.createdAt).toLocaleDateString('pt-br',)} - ${new Date(order.createdAt).toLocaleTimeString('pt-br', {
-                      hour: '2-digit',
-                      minute: '2-digit',
-                    })}h`}
-                  </time>
-                  <hr />
-                  {order.Products.map((items, index) => (
-                    <div key={index}>
-                      <p> {items.qtd} {items.name}</p>
-                      <p>{items.flavor}</p>
-                      <p>{items.complement}</p>
-                      <hr />
-                    </div>
-                  ))}
-
-
-                  <Button text="Preparar" className='button' onClick={() => setStatus(order.id, 'preparing')} />
-                  <Button text="Despachar" className='button' onClick={() => setStatus(order.id, 'ready')} />
-
-                </div>
-              </section>
-            );
-          })}
-        </section>
-      </section>
-
-    </div>
+      </div></>
   );
 }
 
