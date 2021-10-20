@@ -22,8 +22,7 @@ function Kitchen() {
       .then((orders) => {
         const status = orders.filter((itens) =>
           itens.status.includes('preparing') ||
-          itens.status.includes('pending') ||
-          itens.status.includes('done')
+          itens.status.includes('pending') 
         );
         setOrderStatus(status);
       });
