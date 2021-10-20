@@ -1,20 +1,23 @@
 import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
-import { isLogged } from '../../utils/authStorage.js';
 
-const PrivateRouter = ({ component: Component, ...rest }) => {
-  return (
-    <Route
-      {...rest}
-      render={props =>
-        isLogged() ? (
-          <Component {...props} />
-        ) : (
-          <Redirect to={{ pathname: '/login', state: { from: props.location } }} />
-        )
-      }
-    />
-  )
-}
+const isLogged = () => {
+  const token = localStorage.getItem('token');
 
-export default PrivateRouter;
+  if (token !== 'undefined' && token !== null) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+const PrivateRoute = ({ component: Component, ...rest }) => (
+  <Route
+    {...rest} render={props =>
+      isLogged() ? (<Component {...props} />) : (<Redirect to={{ pathname: '/login', state: { from: props.location } }} />
+      )
+    }
+  />
+)
+
+export default PrivateRoute;
