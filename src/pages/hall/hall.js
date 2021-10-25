@@ -190,7 +190,6 @@ function Hall() {
             <div key={index}>
               <Cart
                 name={item.name}
-                img={item.image}
                 price={item.price}
                 qtd={item.qtd}
                 flavor={item.flavor}

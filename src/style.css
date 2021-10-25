@@ -56,16 +56,6 @@ h2 {
   margin: 5px;
 }
 
-.kitchenCard {
-  border: 2px solid var(--red);
-  background-color: var(--gray);
-  border-radius: 5px;
-  width: 175px;
-  display: inline-block;
-  padding: 5px;
-  margin: 5px;
-}
-
 .flexBox {
   display: flex;
   justify-content: center;

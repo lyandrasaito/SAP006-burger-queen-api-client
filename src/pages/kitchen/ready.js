@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Button from '../../components/button/button';
-import { useHistory } from 'react-router-dom';
 import '../../../src/style.css';
 import KitchenHeader from "../../components/headers/kitchen";
 
@@ -34,14 +32,14 @@ export const Ready = () => {
   return (
     <>
       <KitchenHeader />
-      <div className="container kitchenContainer">
+      <div className="kitchenContainer">
         <section className="menu">
           <h1>Pedidos finalizados</h1>
           <section>
             {orders.map((order) => {
               return (
-                <div className="" key={order.id}>
-                  <div className="card kitchenCard">
+                <div className="card" key={order.id}>
+                  <div className="">
                     <h1>{order.status.replace('ready', 'Despachado').replace('delivered', 'Servido')}</h1>
                     <p>{order.id}</p>
                     <p>Cliente: {order.client_name}</p>
