@@ -11,7 +11,7 @@ export const validation = (values) => {
     errors.email = 'Formato de e-mail inválido. Tente novamente';
   }
   if (!values.password) {
-    errors.password = 'Preencha com uma senha';
+    errors.password = 'Preencha sua senha';
   } else if (values.password.length < 6) {
     errors.password = 'A senha deve conter no mínimo 6 caracteres';
   }

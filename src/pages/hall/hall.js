@@ -7,6 +7,7 @@ import Cart from '../../components/cart/cart.js';
 import { useHistory } from 'react-router-dom';
 import { postOrder } from '../../services/postAPI.js';
 import logo from '../../img/logo.png'
+import Modal from "../../components/modal/modal.js";
 
 function Hall() {
   const token = localStorage.getItem('token');
@@ -21,6 +22,8 @@ function Hall() {
     table: '',
     order: '',
   });
+
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   useEffect(() => {
     fetch('https://lab-api-bq.herokuapp.com/products', {
@@ -123,6 +126,7 @@ function Hall() {
       setOrder([]);
       setClient([]);
       setSelectTable('');
+      setIsModalVisible(true);
     }
   }
 
@@ -144,7 +148,7 @@ function Hall() {
 
   return (
     <>
-      <img src={logo} alt='logo' className="logo"/>
+      <img src={logo} alt='logo' className="logo" />
       <div className="container">
         <section className="menu">
 
@@ -219,6 +223,10 @@ function Hall() {
 
           <Button className="button" text="Despachar" onClick={(e) => handleSubmit(e)} />
 
+          {isModalVisible ? (
+            <Modal onClose={() => setIsModalVisible(false)}>
+              <h3>Despachado</h3>
+            </Modal>) : null}
         </section>
 
       </div></>

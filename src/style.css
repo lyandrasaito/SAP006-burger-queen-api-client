@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 * {
-  --blue: #000000;
+  --black: #000000;
   --red: #940A0F;
   --gray: #1f1d2b;
   font-family: 'Roboto', sans-serif;
@@ -8,7 +8,7 @@
 }
 
 body {
-  background-color: black;
+  background-color: var(--black);
 }
 
 h2 {
@@ -86,7 +86,7 @@ h2 {
   width: 150px;
   padding: 10px;
   margin: 5px;
-  box-shadow: 5px 5px 5px black;
+  box-shadow: 5px 5px 5px var(--black);
 }
 
 .buttonAdd {
