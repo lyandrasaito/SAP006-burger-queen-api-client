@@ -9,10 +9,8 @@
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 10;
-  /*sobrepor para frente*/
-  background-color: rgba(0, 0, 0, 0.8);
-  /*0.8 de transparência*/
+  z-index: 10;  /*sobrepor para frente*/
+  background-color: rgba(0, 0, 0, 0.8);   /*0.8 de transparência*/
   display: flex;
   justify-content: center;
   align-items: center;
