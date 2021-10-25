@@ -55,7 +55,7 @@ function Kitchen() {
 
             {orderStatus.map((order) => {
               return (
-                <section className="card" key={order.id}>
+                <section className="card card-kitchen" key={order.id}>
                   <div className="">
                     <h1> {order.status.replace('pending', 'Pendente').replace('preparing', 'Em andamento')} </h1>
                     <p>ID: {order.id} </p>
@@ -76,10 +76,10 @@ function Kitchen() {
                         <hr />
                       </div>
                     ))}
-
-                    <Button text="Preparar" className='button' onClick={() => setStatus(order.id, 'preparing')} />
-                    <Button text="Despachar" className='button' onClick={() => setStatus(order.id, 'ready')} />
-
+                    <div className='btn-card'>
+                      <Button text="Preparar" className='button' onClick={() => setStatus(order.id, 'preparing')} />
+                      <Button text="Despachar" className='button' onClick={() => setStatus(order.id, 'ready')} />
+                    </div>   
                   </div>
                 </section>
               );

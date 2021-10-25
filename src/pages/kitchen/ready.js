@@ -38,7 +38,7 @@ export const Ready = () => {
           <section>
             {orders.map((order) => {
               return (
-                <div className="card" key={order.id}>
+                <div className="card card-kitchen" key={order.id}>
                   <div className="">
                     <h1>{order.status.replace('ready', 'Despachado').replace('delivered', 'Servido')}</h1>
                     <p>{order.id}</p>
