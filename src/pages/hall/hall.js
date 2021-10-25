@@ -4,10 +4,9 @@ import Button from '../../components/button/button.js';
 import Menu from '../../components/menu/menu.js';
 import '../../../src/style.css';
 import Cart from '../../components/cart/cart.js';
-import { useHistory } from 'react-router-dom';
 import { postOrder } from '../../services/postAPI.js';
-import logo from '../../img/logo.png'
 import Modal from "../../components/modal/modal.js";
+import HallHeader from '../../components/headers/hall.js';
 
 function Hall() {
   const token = localStorage.getItem('token');
@@ -130,35 +129,9 @@ function Hall() {
     }
   }
 
-  const home = () => {
-    history.push('/hall')
-  }
-
-  const toDeliver = () => {
-    history.push('/todeliver')
-  }
-
-  const delivered = () => {
-    history.push('/delivered')
-  }
-
-  const history = useHistory();
-  const handleSignOut = (e) => {
-    e.preventDefault();
-    history.push('/login')
-    localStorage.clear();
-  }
-
-
   return (
     <>
-      <img src={logo} alt='logo' className="logo" />
-      <section className="nav-btn">
-        <Button text="Início" className='button' onClick={home} />
-        <Button text="Prontos para servir" className='button' onClick={toDeliver} />
-        <Button text="Pedidos entregues" className='button' onClick={delivered} />
-        <Button text="Sair" className='button' onClick={handleSignOut} />
-      </section>
+      <HallHeader />
       <div className="container">
         <section className="menu">
 

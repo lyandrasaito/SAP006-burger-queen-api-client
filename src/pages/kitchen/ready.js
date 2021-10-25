@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Button from '../../components/button/button';
 import { useHistory } from 'react-router-dom';
 import '../../../src/style.css';
-import logo from '../../img/logo.png'
+import KitchenHeader from "../../components/headers/kitchen";
 
 export const Ready = () => {
   const [orders, setOrders] = useState([]);
@@ -24,21 +24,6 @@ export const Ready = () => {
       });
   });
 
-  const history = useHistory();
-  const handleSignOut = (e) => {
-    e.preventDefault();
-    history.push('/login')
-    localStorage.clear();
-  }
-
-  const ready = () => {
-    history.push('/ready')
-  }
-
-  const kitchen = () => {
-    history.push('/kitchen')
-  }
-
   const duration = (updatedAt, createdAt) => {
     // valor absoluto
     const difference = Math.abs(new Date(updatedAt) - new Date(createdAt));
@@ -47,18 +32,12 @@ export const Ready = () => {
   }
 
   return (
-    <><img src={logo} alt='logo' className="logo" />
-      <section className="nav-btn">
-        <Button text="Pendentes" className='button' onClick={kitchen} />
-        <Button text="Despachados" className='button' onClick={ready} />
-        <Button text="Sair" className='button' onClick={handleSignOut} />
-      </section>
+    <>
+      <KitchenHeader />
       <div className="container kitchenContainer">
         <section className="menu">
           <h1>Pedidos finalizados</h1>
-
           <section>
-
             {orders.map((order) => {
               return (
                 <div className="" key={order.id}>
