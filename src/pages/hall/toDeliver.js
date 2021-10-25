@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Button from '../../components/button/button';
-import { useHistory } from 'react-router-dom';
 import '../../../src/style.css';
-import logo from '../../img/logo.png'
+import HallHeader from '../../components/headers/hall.js';
 
 function ToDeliver() {
   const token = localStorage.getItem('token');
@@ -44,37 +43,12 @@ function ToDeliver() {
       });
   };
 
-  const toDeliver = () => {
-    history.push('/todeliver')
-  }
-
-  const delivered = () => {
-    history.push('/delivered')
-  }
-
-  const history = useHistory();
-  const handleSignOut = (e) => {
-    e.preventDefault();
-    history.push('/login')
-    localStorage.clear();
-  }
-
-  const home = () => {
-    history.push('/hall')
-  }
-
   return (
-    <><img src={logo} alt='logo' className="logo" />
+    <>
+      <HallHeader />
       <div className="container kitchenContainer">
         <section className="menu">
           <h1>Pedidos para entregar</h1>
-
-          <section className="products-btn">
-            <Button text="Início" className='button' onClick={home} />
-            <Button text="Prontos para servir" className='button' onClick={toDeliver} />
-            <Button text="Pedidos entregues" className='button' onClick={delivered} />
-            <Button text="Sair" className='button' onClick={handleSignOut} />
-          </section>
 
           <section>
             {orderStatus.map((order) => {

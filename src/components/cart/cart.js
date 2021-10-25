@@ -2,15 +2,14 @@ import React from 'react';
 import '../../style.css';
 import Button from '../button/button';
 
-export default function Cart({ className, key, id, name, price, flavor, complement, qtd, img, onClick }) {
+export default function Cart({ className, key, id, name, price, flavor, complement, qtd, onClick }) {
   return (
     <>
       <div className={className} key={key} id={id} price={price} qtd={qtd}>
         <div>
-          <h1 className="" > {id} {name}</h1>
-          <img src={img} className="productsImage" alt="imagem do produto"></img>
+          <h4> {id} {name}</h4>
         </div>
-        <div className="">
+        <div>
           Valor unitário: R${price},00 |
           Sabor: {flavor} |
           Complemento: {complement}  |

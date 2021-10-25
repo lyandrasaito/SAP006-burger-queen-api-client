@@ -4,16 +4,15 @@ import Button from '../../components/button/button.js';
 import Menu from '../../components/menu/menu.js';
 import '../../../src/style.css';
 import Cart from '../../components/cart/cart.js';
-import { useHistory } from 'react-router-dom';
 import { postOrder } from '../../services/postAPI.js';
-import logo from '../../img/logo.png'
 import Modal from "../../components/modal/modal.js";
+import HallHeader from '../../components/headers/hall.js';
 
 function Hall() {
   const token = localStorage.getItem('token');
   const [client, setClient] = useState('');
   const [products, setProducts] = useState([]);
-  const [menu, setMenu] = useState('all-day');
+  const [menu, setMenu] = useState('hamburguer');
   const [order, setOrder] = useState([]);
   const [table, setTable] = useState('');
   const [selectTable, setSelectTable] = useState('');
@@ -38,7 +37,7 @@ function Hall() {
     })
   }, [token]);
 
-  const selectedProducts = products.filter((prod) => prod.type === menu)
+  const selectedProducts = products.filter((prod) => prod.sub_type === menu)
 
   const handleAdd = (e, item) => {
     e.preventDefault();
@@ -130,34 +129,17 @@ function Hall() {
     }
   }
 
-  const toDeliver = () => {
-    history.push('/todeliver')
-  }
-
-  const delivered = () => {
-    history.push('/delivered')
-  }
-
-  const history = useHistory();
-  const handleSignOut = (e) => {
-    e.preventDefault();
-    history.push('/login')
-    localStorage.clear();
-  }
-
-
   return (
     <>
-      <img src={logo} alt='logo' className="logo" />
+      <HallHeader />
       <div className="container">
         <section className="menu">
 
-          <section className="products-btn" >
-            <Button text="All Day" className='button' onClick={() => { setMenu('all-day'); }} />
+          <section className="nav-btn" >
+            <Button text="Hambúrgueres" className='button' onClick={() => { setMenu('hamburguer'); }} />
+            <Button text="Acompanhamentos" className='button' onClick={() => { setMenu('side'); }} />
+            <Button text="Bebidas" className='button' onClick={() => { setMenu('drinks'); }} />
             <Button text="Café da manhã" className='button' onClick={() => { setMenu('breakfast'); }} />
-            <Button text="Prontos para servir" className='button' onClick={toDeliver} />
-            <Button text="Pedidos entregues" className='button' onClick={delivered} />
-            <Button text="Sair" className='button' onClick={handleSignOut} />
           </section>
 
           <section className="products">
@@ -208,7 +190,6 @@ function Hall() {
             <div key={index}>
               <Cart
                 name={item.name}
-                img={item.image}
                 price={item.price}
                 qtd={item.qtd}
                 flavor={item.flavor}

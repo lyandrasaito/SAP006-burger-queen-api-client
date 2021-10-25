@@ -2,8 +2,7 @@ import React from "react";
 import { useState, useEffect } from 'react';
 import '../../../src/style.css';
 import Button from "../../components/button/button";
-import { useHistory } from 'react-router-dom';
-import logo from '../../img/logo.png'
+import KitchenHeader from "../../components/headers/kitchen";
 
 function Kitchen() {
   const token = localStorage.getItem('token');
@@ -22,18 +21,11 @@ function Kitchen() {
       .then((orders) => {
         const status = orders.filter((itens) =>
           itens.status.includes('preparing') ||
-          itens.status.includes('pending') 
+          itens.status.includes('pending')
         );
         setOrderStatus(status);
       });
   })
-
-  const history = useHistory();
-  const handleSignOut = (e) => {
-    e.preventDefault();
-    history.push('/login')
-    localStorage.clear();
-  }
 
   const setStatus = (id, newStatus) => {
     const status = { status: newStatus };
@@ -53,31 +45,18 @@ function Kitchen() {
       });
   };
 
-  const ready = () => {
-    history.push('/ready')
-  }
-
-  const kitchen = () => {
-    history.push('/kitchen')
-  }
-
   return (
-    <><img src={logo} alt='logo' className="logo" />
+    <>
+      <KitchenHeader />
       <div className="kitchenContainer">
         <section className="menu">
-          <h1>Pedidos</h1>
-
-          <section className="products-btn">
-            <Button text="Início" className='button' onClick={kitchen} />
-            <Button text="Despachados" className='button' onClick={ready} />
-            <Button text="Sair" className='button' onClick={handleSignOut} />
-          </section>
-
+          <h1>Pedidos Pendentes</h1>
           <section>
+
             {orderStatus.map((order) => {
               return (
-                <section className="products" key={order.id}>
-                  <div className="kitchenCard">
+                <section className="card" key={order.id}>
+                  <div className="">
                     <h1> {order.status.replace('pending', 'Pendente').replace('preparing', 'Em andamento')} </h1>
                     <p>ID: {order.id} </p>
                     <p>Cliente: {order.client_name} </p>
@@ -105,6 +84,7 @@ function Kitchen() {
                 </section>
               );
             })}
+
           </section>
         </section>
 
