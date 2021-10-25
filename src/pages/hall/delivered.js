@@ -47,16 +47,15 @@ function Delivered() {
 
   return (
     <><img src={logo} alt='logo' className="logo" />
+      <section className="nav-btn">
+        <Button text="Início" className='button' onClick={home} />
+        <Button text="Prontos para servir" className='button' onClick={toDeliver} />
+        <Button text="Pedidos entregues" className='button' onClick={delivered} />
+        <Button text="Sair" className='button' onClick={handleSignOut} />
+      </section>
       <div className="container kitchenContainer">
         <section className="menu">
           <h1>Pedidos Entregues</h1>
-
-          <section className="products-btn">
-            <Button text="Início" className='button' onClick={home} />
-            <Button text="Prontos para servir" className='button' onClick={toDeliver} />
-            <Button text="Pedidos entregues" className='button' onClick={delivered} />
-            <Button text="Sair" className='button' onClick={handleSignOut} />
-          </section>
 
           <section>
             {orderStatus.map((order) => {

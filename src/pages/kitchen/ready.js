@@ -48,15 +48,14 @@ export const Ready = () => {
 
   return (
     <><img src={logo} alt='logo' className="logo" />
+      <section className="nav-btn">
+        <Button text="Pendentes" className='button' onClick={kitchen} />
+        <Button text="Despachados" className='button' onClick={ready} />
+        <Button text="Sair" className='button' onClick={handleSignOut} />
+      </section>
       <div className="container kitchenContainer">
         <section className="menu">
-          <h1>Pedidos</h1>
-
-          <section className="">
-            <Button text="Início" className='button' onClick={kitchen} />
-            <Button text="Despachados" className='button' onClick={ready} />
-            <Button text="Sair" className='button' onClick={handleSignOut} />
-          </section>
+          <h1>Pedidos finalizados</h1>
 
           <section>
 
@@ -64,7 +63,7 @@ export const Ready = () => {
               return (
                 <div className="" key={order.id}>
                   <div className="card kitchenCard">
-                    <h1>{order.status.replace('ready', 'Despachado').replace('delivered', 'Entregue')}</h1>
+                    <h1>{order.status.replace('ready', 'Despachado').replace('delivered', 'Servido')}</h1>
                     <p>{order.id}</p>
                     <p>Cliente: {order.client_name}</p>
                     <p>Mesa: {order.table}</p>

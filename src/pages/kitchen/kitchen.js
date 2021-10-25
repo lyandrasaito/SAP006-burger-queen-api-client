@@ -22,7 +22,7 @@ function Kitchen() {
       .then((orders) => {
         const status = orders.filter((itens) =>
           itens.status.includes('preparing') ||
-          itens.status.includes('pending') 
+          itens.status.includes('pending')
         );
         setOrderStatus(status);
       });
@@ -63,15 +63,16 @@ function Kitchen() {
 
   return (
     <><img src={logo} alt='logo' className="logo" />
+
+      <section className="nav-btn">
+        <Button text="Pendentes" className='button' onClick={kitchen} />
+        <Button text="Despachados" className='button' onClick={ready} />
+        <Button text="Sair" className='button' onClick={handleSignOut} />
+      </section>
+
       <div className="kitchenContainer">
         <section className="menu">
-          <h1>Pedidos</h1>
-
-          <section className="products-btn">
-            <Button text="Início" className='button' onClick={kitchen} />
-            <Button text="Despachados" className='button' onClick={ready} />
-            <Button text="Sair" className='button' onClick={handleSignOut} />
-          </section>
+          <h1>Pedidos Pendentes</h1>
 
           <section>
             {orderStatus.map((order) => {

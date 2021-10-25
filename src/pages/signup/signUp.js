@@ -48,7 +48,6 @@ const SignUp = () => {
       .then((response) => {
         if (response.code === 403) {
           setIsModalVisible(true);
-          console.log("E-mail em uso");
         } else {
           console.log(response.token);
 
