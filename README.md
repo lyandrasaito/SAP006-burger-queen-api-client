@@ -1,6 +1,6 @@
 # Laboratória SAP006 - Burger Queen
 
-[img](https://raw.githubusercontent.com/lyandrasaito/SAP006-burger-queen-api-client/README/src/img/logo.png)
+![img](https://raw.githubusercontent.com/lyandrasaito/SAP006-burger-queen-api-client/README/src/img/logo.png)
 
 ## Índice
 
@@ -75,21 +75,21 @@ adicionar queijo **ou** ovo.
 Nossos clientes são bastante indecisos, por isso é muito comum que eles mudem o
 seu pedido várias vezes antes de finalizar."</i>
 
-[img](https://raw.githubusercontent.com/lyandrasaito/SAP006-burger-queen-api-client/README/README/Card%C3%A1pio%20-BQ.png)
+![img](https://raw.githubusercontent.com/lyandrasaito/SAP006-burger-queen-api-client/README/README/Card%C3%A1pio%20-BQ.png)
 
 ## 3. Histórias de usuário
 
 ### Histórias de usuário 1
-[img](https://raw.githubusercontent.com/lyandrasaito/SAP006-burger-queen-api-client/README/README/historia-de-usuario-1.png)
+![img](https://raw.githubusercontent.com/lyandrasaito/SAP006-burger-queen-api-client/README/README/historia-de-usuario-1.png)
 
 ### Histórias de usuário 2
-[img](https://raw.githubusercontent.com/lyandrasaito/SAP006-burger-queen-api-client/README/README/historia-de-usuario-2.png)
+![img](https://raw.githubusercontent.com/lyandrasaito/SAP006-burger-queen-api-client/README/README/historia-de-usuario-2.png)
 
 ### Histórias de usuário 3
-[img](https://raw.githubusercontent.com/lyandrasaito/SAP006-burger-queen-api-client/README/README/historia-de-usuario-3.png)
+![img](https://raw.githubusercontent.com/lyandrasaito/SAP006-burger-queen-api-client/README/README/historia-de-usuario-3.png)
 
 ### Histórias de usuário 4
-[img](https://raw.githubusercontent.com/lyandrasaito/SAP006-burger-queen-api-client/README/README/historia-de-usuario-4.png)
+![img](https://raw.githubusercontent.com/lyandrasaito/SAP006-burger-queen-api-client/README/README/historia-de-usuario-4.png)
 
 ## 4. Definição de interface
 
@@ -104,11 +104,11 @@ Depois criamos o protótipo de alta fidelidade, escolhendo uma paleta de cores, 
 
 ## 5. Aplicação
 
-    Nossa aplicação Burguer Things foi desenvolvida por Jéssica Inamassu e Lyandra Saito,
-  que de acordo com  o pedido realizado pelo cliente, foram criadas histórias de usuário 
-  contendo o que o problema a ser resolvido e o que deve ser implementado para a resolução do problema.
-  Para a realização desse trabalho contamos com a utilização de uma API onde os dados nela contidos
-  nos foi fornecido pelo próprio cliente. 
+Nossa aplicação Burguer Things foi desenvolvida por Jéssica Inamassu e Lyandra Saito,
+que de acordo com  o pedido realizado pelo cliente, foram criadas histórias de usuário 
+contendo o que o problema a ser resolvido e o que deve ser implementado para a resolução do problema.
+Para a realização desse trabalho contamos com a utilização de uma API onde os dados nela contidos
+nos foi fornecido pelo próprio cliente. 
 
 ## 6. Tecnologias utilizadas
 
