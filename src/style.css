@@ -36,6 +36,13 @@ h2 {
   justify-content: center;
 }
 
+/* .column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+} */
+
 .kitchenArea {
   width: 98%;
   display: flex;
@@ -88,6 +95,12 @@ h2 {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+.flexBox2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .logo {
@@ -172,12 +185,13 @@ option {
 .hallScroll {
   text-align: center;
   overflow: auto;
-  height: 450px;
+  height: 300px;
   width: 100%;
+  margin-top: 25px;
 }
 
 .scrollCart {
-  height: 300px;
+  height: 280px;
 }
 
 .scrollReady {
@@ -207,13 +221,25 @@ option {
 
 /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
 
-@media (max-width:360px) {
+/* @media (max-width:360px) {
   .card-kitchen {
     height: 450px;
     vertical-align: top;
     width: 200px;
   }
+  .hallArea {
+    flex-direction: column;
+    margin-top: 20px;
+  }
+
 }
+
+@media (max-width:515px) {
+  .hallArea {
+    flex-direction: column;
+    margin-top: 350px;
+  }
+} */
 
 /*
 @media (min-width:480px) {}

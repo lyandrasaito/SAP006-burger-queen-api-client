@@ -133,6 +133,8 @@ function Hall() {
     <>
       <HallHeader />
       <div className="hallArea">
+
+
         <div className="container">
           <section>
             <section className="center" >
@@ -159,19 +161,17 @@ function Hall() {
               ))}
             </section>
           </section>
-
         </div>
+
         <div className="container">
           <div className="cart center">
             <h2>Carrinho</h2>
-
             <Input
               className="cartInput field"
               placeholder="Nome do cliente: "
               name="client"
               value={client}
               onChange={(e) => setClient(e.target.value)} />
-
             <select onChange={handleChange} value={selectTable} name="Mesa: " className="cartInput field select-table">
               <option defaultValue>Mesa: </option>
               <option value="1">Mesa 1</option>
@@ -180,11 +180,9 @@ function Hall() {
               <option value="4">Mesa 4</option>
               <option value="5">Mesa 5</option>
             </select>
-
             <div>{error.order && <p className="error-msg">{error.order}</p>} </div>
             <div>{error.table && <p className="error-msg">{error.table}</p>} </div>
             <div>{error.client && <p className="error-msg">{error.client}</p>} </div>
-
             <section className="hallScroll scrollCart">
               {order.map((item, index) =>
                 <div key={index}>
@@ -197,7 +195,6 @@ function Hall() {
 
                     onClick={(e) => handleRemove(e, item, index)} />
                 </div>
-
               )}
             </section>
             <p className="total">Total: R$ {total(order)},00</p>
@@ -209,9 +206,11 @@ function Hall() {
                 <h3>Despachado</h3>
               </Modal>) : null}
           </div>
-
         </div>
-      </div></>
+
+
+      </div>
+    </>
   );
 }
 
