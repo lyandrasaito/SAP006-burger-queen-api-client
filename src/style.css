@@ -132,6 +132,8 @@ h2 {
 .cartInput {
   color: var(--white);
   border: 2px solid var(--red);
+  width: 200px;
+  height: 43px;
 }
 
 ::placeholder {
@@ -153,8 +155,6 @@ option {
 
 .kitchenScroll {
   text-align: center;
-  /* margin: 2px; */
-  /* border: 5px solid green; */
   overflow: auto;
   height: 150px;
   width: 100%;
