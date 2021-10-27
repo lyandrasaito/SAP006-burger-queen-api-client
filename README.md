@@ -1,6 +1,6 @@
 # Laboratória SAP006 - Burger Queen
 
-[img]
+[img](https://raw.githubusercontent.com/lyandrasaito/SAP006-burger-queen-api-client/README/src/img/logo.png)
 
 ## Índice
 
@@ -50,8 +50,6 @@ Desta vez temos um projeto 100% por demanda. Você sempre pode (e deve) fazer
 sugestões de melhora e mudança, mas muitas vezes trabalhará em um projeto em que
 primeiro deve se assegurar de cumprir os requisitos.
 
-![burger-queen](https://user-images.githubusercontent.com/110297/42118136-996b4a52-7bc6-11e8-8a03-ada078754715.jpg)
-
 ## 2. Resumo do projeto
 
 Desta vez temos um projeto 100% por demanda. Você sempre pode (e deve) fazer
@@ -77,29 +75,29 @@ adicionar queijo **ou** ovo.
 Nossos clientes são bastante indecisos, por isso é muito comum que eles mudem o
 seu pedido várias vezes antes de finalizar."</i>
 
-[img]
+[img](https://raw.githubusercontent.com/lyandrasaito/SAP006-burger-queen-api-client/README/README/Card%C3%A1pio%20-BQ.png)
 
 ## 3. Histórias de usuário
 
 ### Histórias de usuário 1
-[img]
+[img](https://raw.githubusercontent.com/lyandrasaito/SAP006-burger-queen-api-client/README/README/historia-de-usuario-1.png)
 
 ### Histórias de usuário 2
-[img]
+[img](https://raw.githubusercontent.com/lyandrasaito/SAP006-burger-queen-api-client/README/README/historia-de-usuario-2.png)
 
 ### Histórias de usuário 3
-[img]
+[img](https://raw.githubusercontent.com/lyandrasaito/SAP006-burger-queen-api-client/README/README/historia-de-usuario-3.png)
 
 ### Histórias de usuário 4
-[img]
+[img](https://raw.githubusercontent.com/lyandrasaito/SAP006-burger-queen-api-client/README/README/historia-de-usuario-4.png)
 
 ## 4. Definição de interface
 
-    Primeiramente criamos um protótipo de baixa fidelidade para entender melhor o fluxo do usuário na aplicação.
+Primeiramente criamos um protótipo de baixa fidelidade para entender melhor o fluxo do usuário na aplicação.
 
   [img]
 
-    Depois criamos o protótipo de alta fidelidade, escolhendo uma paleta de cores, o nome e ajustamos o layout.
+Depois criamos o protótipo de alta fidelidade, escolhendo uma paleta de cores, o nome e ajustamos o layout.
 
   [img]
    
