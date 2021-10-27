@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import '../../../src/style.css';
 import KitchenHeader from "../../components/headers/kitchen";
+import Button from '../../components/button/button';
 
 export const Ready = () => {
   const [orders, setOrders] = useState([]);
   const token = localStorage.getItem('token');
+  const url = 'https://lab-api-bq.herokuapp.com/orders/';
+
   useEffect(() => {
-    fetch('https://lab-api-bq.herokuapp.com/orders', {
+    fetch(url, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -28,6 +31,25 @@ export const Ready = () => {
     // arredondar
     return Math.floor(difference / 1000 / 60);
   }
+
+  const deleteOrder = (id) => {
+    const status = { status: 'ready' };
+    fetch(url + id, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `${token}`,
+      },
+      body: JSON.stringify(status),
+    })
+      .then((response) => {
+        response.json()
+          .then(() => {
+            const order = orders;
+            return order;
+          });
+      });
+  };
 
   return (
     <>
@@ -59,6 +81,7 @@ export const Ready = () => {
                           </div>
                         ))}
                       </div>
+                      <Button text="Apagar" className='button' onClick={() => deleteOrder(order.id)} />
                     </div>
                   </div>
                 );

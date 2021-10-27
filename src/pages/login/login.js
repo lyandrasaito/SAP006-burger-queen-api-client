@@ -8,6 +8,7 @@ import Button from "../../components/button/button.js";
 import Input from "../../components/input/input.js";
 import validation from "./loginValidation.js";
 import Modal from "../../components/modal/modal.js";
+import Footer from "../../components/footer/footer";
 
 const Login = () => {
   localStorage.clear();
@@ -94,6 +95,7 @@ const Login = () => {
           <h3>Não possui uma conta?</h3>
           <Button className='button' onClick={handleSignup} text='Cadastre-se' />
         </div>
+        <Footer />
       </div>
     </>
   );

@@ -18,7 +18,7 @@ h2 {
 
 .content {
   width: 100%;
-  height: 100vh;
+  height: 100%;
 }
 
 .area {
@@ -55,6 +55,7 @@ h2 {
   width: 95%;
   border: 2px solid var(--red);
   border-radius: 5px;
+  height: 90%;
 }
 
 .kitchenContainer {
@@ -83,7 +84,7 @@ h2 {
 }
 
 .ready {
-  height: 380px;
+  height: 420px;
 }
 
 .center {
@@ -175,6 +176,11 @@ option {
   height: 500px;
 }
 
+.footer {
+  position: absolute;
+  bottom: 0;
+}
+
 .kitchenScroll {
   text-align: center;
   overflow: auto;
@@ -185,7 +191,7 @@ option {
 .hallScroll {
   text-align: center;
   overflow: auto;
-  height: 400px;
+  height: 550px;
   width: 100%;
   margin-top: 25px;
 }
@@ -221,7 +227,7 @@ option {
 
 /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
 
-/* @media (max-width:360px) {
+@media (max-width:360px) {
   .card-kitchen {
     height: 450px;
     vertical-align: top;
@@ -231,7 +237,6 @@ option {
     flex-direction: column;
     margin-top: 20px;
   }
-
 }
 
 @media (max-width:515px) {
@@ -239,7 +244,7 @@ option {
     flex-direction: column;
     margin-top: 350px;
   }
-} */
+}
 
 /*
 @media (min-width:480px) {}

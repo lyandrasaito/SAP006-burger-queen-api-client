@@ -8,6 +8,7 @@ import { signUp } from "../../services/authAPI.js";
 import { useState } from "react";
 import { useHistory } from 'react-router-dom';
 import Modal from "../../components/modal/modal.js";
+import Footer from "../../components/footer/footer";
 
 const SignUp = () => {
   localStorage.clear();
@@ -107,8 +108,8 @@ const SignUp = () => {
             <Modal onClose={() => setIsModalVisible(false)}>
               <h3>E-mail já cadastrado</h3>
             </Modal>) : null}
-
         </div>
+        <Footer />
       </div>
     </>
   )
