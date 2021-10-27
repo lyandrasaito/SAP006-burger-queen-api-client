@@ -68,7 +68,7 @@ const Login = () => {
     <>
       <div className='content flexBox'>
         <div className='area flexBox'>
-          <img src={logo} alt='logo' className='logo-login' />
+          <img src={logo} alt='logo' className='auth-logo' />
           <h1>Login</h1>
           <form onSubmit={handleSubmit}>
             <div className='flexBox'>

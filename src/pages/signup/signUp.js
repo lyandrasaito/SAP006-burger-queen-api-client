@@ -70,7 +70,7 @@ const SignUp = () => {
     <>
       <div className='content flexBox'>
         <div className='area flexBox'>
-          <img src={logo} alt='logo' />
+          <img src={logo} alt='logo' className='auth-logo' />
           <h1>Cadastro</h1>
 
           <form onSubmit={handleSubmit}>
