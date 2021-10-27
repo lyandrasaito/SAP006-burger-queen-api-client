@@ -185,7 +185,7 @@ option {
 .hallScroll {
   text-align: center;
   overflow: auto;
-  height: 300px;
+  height: 400px;
   width: 100%;
   margin-top: 25px;
 }
