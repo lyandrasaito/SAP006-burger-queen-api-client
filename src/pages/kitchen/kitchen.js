@@ -48,46 +48,50 @@ function Kitchen() {
   return (
     <>
       <KitchenHeader />
-      <div className="kitchenContainer">
-        <section className="menu">
-          <h1>Pedidos Pendentes</h1>
-          <section>
+      <div className="kitchenArea">
+        <div className="kitchenContainer">
+          <section className="center">
+            <h1>Pedidos Pendentes</h1>
+            <section>
 
-            {orderStatus.map((order) => {
-              return (
-                <section className="card card-kitchen" key={order.id}>
-                  <div className="">
-                    <h1> {order.status.replace('pending', 'Pendente').replace('preparing', 'Em andamento')} </h1>
-                    <p>ID: {order.id} </p>
-                    <p>Cliente: {order.client_name} </p>
-                    <p>Mesa: {order.table} </p>
-                    <time>
-                      {`${new Date(order.createdAt).toLocaleDateString('pt-br')} - ${new Date(order.createdAt).toLocaleTimeString('pt-br', {
-                        hour: '2-digit',
-                        minute: '2-digit',
-                      })}h`}
-                    </time>
-                    <hr />
-                    {order.Products.map((items, index) => (
-                      <div key={index}>
-                        <p> {items.qtd} {items.name}</p>
-                        <p>{items.flavor}</p>
-                        <p>{items.complement}</p>
-                        <hr />
+              {orderStatus.map((order) => {
+                return (
+                  <section className="card card-kitchen" key={order.id}>
+                    <div>
+                      <h1> {order.status.replace('pending', 'Pendente').replace('preparing', 'Em andamento')} </h1>
+                      <p>ID: {order.id} </p>
+                      <p>Cliente: {order.client_name} </p>
+                      <p>Mesa: {order.table} </p>
+                      <time>
+                        {`${new Date(order.createdAt).toLocaleDateString('pt-br')} - ${new Date(order.createdAt).toLocaleTimeString('pt-br', {
+                          hour: '2-digit',
+                          minute: '2-digit',
+                        })}h`}
+                      </time>
+                      <hr />
+                      <div className="kitchenScroll">
+                        {order.Products.map((items, index) => (
+                          <div key={index}>
+                            <p> {items.qtd} {items.name}</p>
+                            <p>{items.flavor}</p>
+                            <p>{items.complement}</p>
+                            <hr />
+                          </div>
+                        ))}
                       </div>
-                    ))}
-                    <div className='btn-card'>
-                      <Button text="Preparar" className='button' onClick={() => setStatus(order.id, 'preparing')} />
-                      <Button text="Despachar" className='button' onClick={() => setStatus(order.id, 'ready')} />
-                    </div>   
-                  </div>
-                </section>
-              );
-            })}
+                      <div className='center'>
+                        <Button text="Preparar" className='button' onClick={() => setStatus(order.id, 'preparing')} />
+                        <Button text="Despachar" className='button' onClick={() => setStatus(order.id, 'ready')} />
+                      </div>
+                    </div>
+                  </section>
+                );
+              })}
 
+            </section>
           </section>
-        </section>
 
+        </div>
       </div></>
   );
 }

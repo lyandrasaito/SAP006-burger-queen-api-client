@@ -3,8 +3,9 @@
   --black: #000000;
   --red: #940A0F;
   --gray: #1f1d2b;
+  --white: #FFFFFF;
   font-family: 'Roboto', sans-serif;
-  color: white;
+  color: var(--white);
 }
 
 body {
@@ -12,7 +13,7 @@ body {
 }
 
 h2 {
-  color: white;
+  color: var(--white);
 }
 
 .content {
@@ -28,19 +29,31 @@ h2 {
   /* min-height: 450px; */
 }
 
+.hallArea {
+  width: 98%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+}
+
+.kitchenArea {
+  width: 98%;
+  display: flex;
+  justify-content: center;
+}
+
 .container {
-  padding: 25px;
-  margin: 25px;
-  width: 40%;
+  padding: 5px;
+  margin: 10px;
+  width: 95%;
   border: 2px solid var(--red);
   border-radius: 5px;
-  display: inline-flex;
 }
 
 .kitchenContainer {
   padding: 25px;
   margin: 25px;
-  width: 90%;
+  width: 95%;
   border: 2px solid var(--red);
   border-radius: 5px;
   display: inline-flex;
@@ -56,13 +69,17 @@ h2 {
   margin: 5px;
 }
 
-.card-kitchen{
-  min-height: 400px;
+.card-kitchen {
+  height: 450px;
   vertical-align: top;
-  width: 278px;
+  width: 250px;
 }
 
-.btn-card{
+.ready {
+  height: 380px;
+}
+
+.center {
   text-align: center;
 }
 
@@ -80,7 +97,7 @@ h2 {
 
 .button {
   background-color: var(--red);
-  color: white;
+  color: var(--white);
   border: none;
   border-radius: 5px;
   width: 150px;
@@ -98,13 +115,13 @@ h2 {
   margin: 5px;
   width: 80%;
   height: 35%;
-  border: 2px solid white;
+  border: 2px solid var(--white);
   border-radius: 5px;
   background-color: var(--gray);
 }
 
 .field:focus {
-  border: 3px solid white;
+  border: 3px solid var(--white);
 }
 
 .productsImage {
@@ -113,47 +130,62 @@ h2 {
 }
 
 .cartInput {
-  color: white;
+  color: var(--white);
   border: 2px solid var(--red);
 }
 
 ::placeholder {
-  color: white;
+  color: var(--white);
 }
 
 option {
-  color: white;
+  color: var(--white);
 }
 
 .error-msg {
   color: var(--red);
 }
 
-.nav-btn {
+.cart {
+  width: 100%;
+  height: 500px;
+}
+
+.kitchenScroll {
   text-align: center;
-  margin: 14px;
+  /* margin: 2px; */
+  /* border: 5px solid green; */
+  overflow: auto;
+  height: 150px;
+  width: 100%;
 }
 
-.products {
+.hallScroll {
   text-align: center;
-  margin: 2px;
+  /* margin: 2px; */
+  overflow: auto;
+  height: 450px;
+  width: 100%;
 }
 
-@media (min-width:320px) {
-  /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+.scrollCart {
+  height: 350px;
 }
 
-@media (min-width:480px) {
-  /* smartphones, Android phones, landscape iPhone */
+.scrollReady {
+  height: 200px;
 }
+
+@media (min-width:320px) {}
+
+@media (min-width:480px) {}
 
 @media (min-width:600px) {
-  .container {
+  /* .container {
     padding: 22px;
     margin: 20px;
     width: 38%;
-    min-height: 920px;
-  }
+  } */
   .cartInput {
     width: 125px;
     height: 38px;
@@ -165,13 +197,9 @@ option {
 
 @media (min-width:801px) {
   .container {
-    padding: 25px;
+    /* padding: 25px;
     margin: 22px;
-    width: 40%;
-    min-height: 650px;
-  }
-  .client-info {
-    justify-content: space-between;
+    width: 40%; */
   }
   .cartInput {
     width: 165px;
@@ -184,7 +212,7 @@ option {
 
 @media (min-width:1025px) {
   .container {
-    min-height: 540px;
+    /* min-height: 540px; */
   }
   .card {
     margin: 5px 20px 5px 20px;
@@ -193,9 +221,8 @@ option {
 
 @media (min-width:1281px) {
   .container {
-    width: 41%;
-    min-height: 900px;
-    margin: 33px;
+    /* width: 41%;
+    margin: 33px; */
   }
   .cartInput {
     width: 200px;
@@ -204,4 +231,25 @@ option {
   .select-table {
     height: 58px;
   }
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--red) var(--gray);
+}
+
+/* Works on Chrome, Edge, and Safari */
+
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: black;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--gray);
+  border-radius: 20px;
+  border: 3px solid var(--red);
 }

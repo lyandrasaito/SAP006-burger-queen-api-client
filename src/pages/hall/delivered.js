@@ -27,15 +27,15 @@ function Delivered() {
   return (
     <>
       <HallHeader />
-      <div className="container kitchenContainer">
-        <section className="menu">
+      <div className="container">
+        <section className="center">
           <h1>Pedidos Entregues</h1>
 
           <section>
             {orderStatus.map((order) => {
               return (
-                <section className="menu" key={order.id}>
-                  <div className="card kitchenCard">
+                <section className="card kitchenCard" key={order.id}>
+                  <div>
                     <h1> {order.status.replace('delivered', 'Entregue')} </h1>
                     <p>ID: {order.id} </p>
                     <p>Cliente: {order.client_name} </p>
