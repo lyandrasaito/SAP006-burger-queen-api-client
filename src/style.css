@@ -162,14 +162,13 @@ option {
 
 .hallScroll {
   text-align: center;
-  /* margin: 2px; */
   overflow: auto;
   height: 450px;
   width: 100%;
 }
 
 .scrollCart {
-  height: 350px;
+  height: 300px;
 }
 
 .scrollReady {
