@@ -1,70 +1,132 @@
-# Getting Started with Create React App
+# Laboratória SAP006 - Burger Queen
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![img](https://raw.githubusercontent.com/lyandrasaito/SAP006-burger-queen-api-client/README/src/img/logo.png)
 
-## Available Scripts
+## Índice
 
-In the project directory, you can run:
+- [1. Prefácio](#1-prefácio)
+- [2. Resumo do projeto](#2-resumo-do-projeto)
+- [3. Histórias de usuário ](#3-histórias-de-usuários)
+- [4. Definição de interface](#4-definição-de-interface)
+- [5. Aplicação](#6-Aplicação)
+- [6. Tecnologias utilizadas](#5-tecnologias-utilizadas)
+- [7. Contato](#6-contato)
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 1. Prefácio
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Um pequeno restaurante de hambúrgueres, que está crescendo, necessita uma
+interface em que se possa realizar pedidos utilizando um _tablet_, e enviá-los
+para a cozinha para que sejam preparados de forma ordenada e eficiente.
 
-### `npm test`
+Este projeto tem duas áreas: interface (cliente) e API (servidor). Nosso
+cliente nos pediu para desenvolver uma interface que se integre com a API
+que outra equipe de desenvolvedoras está trabalhando simultaneamente.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[React](https://reactjs.org/)
+é um dos _frameworks_ e _bibliotecas_ de JavaScript mais usados
+na área de desenvolvimento ao redor do mundo e existe uma razão para isso.
+No contexto do navegador, [_manter a interface sincronizada com o estado é
+difícil_](https://medium.com/dailyjs/the-deepest-reason-why-modern-javascript-frameworks-exist-933b86ebc445).
+Ao eleger um _framework_ ou _biblioteca_ para nossa interface, nos apoiamos em
+uma série de convenções e implementações _testadas_ e _documentadas_ para
+resolver um problema comum a toda interface web. Isto nos permite concentrar
+melhor (dedicar mais tempo) nas características _específicas_ de nossa
+aplicação.
 
-### `npm run build`
+Quando escolhemos uma destas tecnologias não só importamos um pedaço de código
+para reusar (o qual já é um grande valor por si só), mas também adotamos uma
+**arquitetura**, uma série de **princípios de design**, um paradigma, algumas
+**abstrações**, um **vocabulário**, uma **comunidade**, etc...
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Como desenvolvedora Front-End, estes kits de desenvolvimento podem resultar em
+uma grande ajuda para implementar rapidamente características dos projetos em que
+você for trabalhar.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 2. Resumo do projeto
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Desta vez temos um projeto 100% por demanda. Você sempre pode (e deve) fazer
+sugestões de melhora e mudança, mas muitas vezes trabalhará em um projeto em que
+primeiro deve se assegurar de cumprir os requisitos.
 
-### `npm run eject`
+## 2. Resumo do projeto
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Desta vez temos um projeto 100% por demanda. Você sempre pode (e deve) fazer
+sugestões de melhora e mudança, mas muitas vezes trabalhará em um projeto em que
+primeiro deve se assegurar de cumprir os requisitos.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Estas são as informações que temos do cliente:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<i>"Somos Burger Queen, um fast food 24hrs.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+A nossa proposta de serviço 24 horas foi muito bem recebida e, para continuar a
+crescer, precisamos de um sistema que nos ajude a receber pedidos de nossos
+clientes.
 
-## Learn More
+Nós temos 2 menus. Um muito simples para o café da manhã:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+E outro menu para o resto do dia:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Importante:** Os clientes podem escolher entre hambúrgueres de carne bovina,
+frango ou vegetariano. Além disso, por um adicional de R\$ 1,00 , eles podem
+adicionar queijo **ou** ovo.
 
-### Code Splitting
+Nossos clientes são bastante indecisos, por isso é muito comum que eles mudem o
+seu pedido várias vezes antes de finalizar."</i>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+![img](https://raw.githubusercontent.com/lyandrasaito/SAP006-burger-queen-api-client/README/README/Card%C3%A1pio%20-BQ.png)
 
-### Analyzing the Bundle Size
+## 3. Histórias de usuário
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Histórias de usuário 1
+![img](https://raw.githubusercontent.com/lyandrasaito/SAP006-burger-queen-api-client/README/README/historia-de-usuario-1.png)
 
-### Making a Progressive Web App
+### Histórias de usuário 2
+![img](https://raw.githubusercontent.com/lyandrasaito/SAP006-burger-queen-api-client/README/README/historia-de-usuario-2.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Histórias de usuário 3
+![img](https://raw.githubusercontent.com/lyandrasaito/SAP006-burger-queen-api-client/README/README/historia-de-usuario-3.png)
 
-### Advanced Configuration
+### Histórias de usuário 4
+![img](https://raw.githubusercontent.com/lyandrasaito/SAP006-burger-queen-api-client/README/README/historia-de-usuario-4.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 4. Definição de interface
 
-### Deployment
+Primeiramente criamos um protótipo de baixa fidelidade para entender melhor o fluxo do usuário na aplicação.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+  [img]
 
-### `npm run build` fails to minify
+Depois criamos o protótipo de alta fidelidade, escolhendo uma paleta de cores, o nome e ajustamos o layout.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  [img]
+   
+
+## 5. Aplicação
+
+Nossa aplicação Burguer Things foi desenvolvida por Jéssica Inamassu e Lyandra Saito,
+que de acordo com  o pedido realizado pelo cliente, foram criadas histórias de usuário 
+contendo o que o problema a ser resolvido e o que deve ser implementado para a resolução do problema.
+Para a realização desse trabalho contamos com a utilização de uma API onde os dados nela contidos
+nos foi fornecido pelo próprio cliente. 
+
+## 6. Tecnologias utilizadas
+
+- HTML;
+- JavaScript;
+- CSS;
+- React;
+- Git;
+- GitHub;
+- HTTP;
+- UX;
+
+## 7. Contato
+
+### Jéssica Inamassu
+- Github: [github.com/jehkaori](https://github.com/jehkaori);
+- LinkedIn: [linkedin.com/jessica-inamassu](https://www.linkedin.com/in/jessica-inamassu);
+
+### Lyandra Saito
+- Github: [github.com/lyandrasaito](https://github.com/lyandrasaito);
+- LinkedIn: [linkedin.com/lyandra-saito](https://www.linkedin.com/in/lyandra-saito);
