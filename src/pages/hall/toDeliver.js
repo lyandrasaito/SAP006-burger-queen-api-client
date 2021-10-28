@@ -46,15 +46,15 @@ function ToDeliver() {
   return (
     <>
       <HallHeader />
-      <div className="container kitchenContainer">
-        <section className="menu">
+      <div className="container">
+        <section className="center">
           <h1>Pedidos para entregar</h1>
 
           <section>
             {orderStatus.map((order) => {
               return (
-                <section className="menu" key={order.id}>
-                  <div className="card kitchenCard">
+                <section key={order.id} className="card kitchenCard">
+                  <div>
                     <h1> {order.status.replace('ready', 'Para servir')} </h1>
                     <p>ID: {order.id} </p>
                     <p>Cliente: {order.client_name} </p>
@@ -66,15 +66,16 @@ function ToDeliver() {
                       })}h`}
                     </time>
                     <hr />
-                    {order.Products.map((items, index) => (
-                      <div key={index}>
-                        <p> {items.qtd} {items.name}</p>
-                        <p>{items.flavor}</p>
-                        <p>{items.complement}</p>
-                        <hr />
-                      </div>
-                    ))}
-
+                    <section className="hallScroll scrollReady">
+                      {order.Products.map((items, index) => (
+                        <div key={index}>
+                          <p> {items.qtd} {items.name}</p>
+                          <p>{items.flavor}</p>
+                          <p>{items.complement}</p>
+                          <hr />
+                        </div>
+                      ))}
+                    </section>
                     <Button text="Servir" className='button' onClick={() => setStatus(order.id, 'delivered')} />
 
                   </div>

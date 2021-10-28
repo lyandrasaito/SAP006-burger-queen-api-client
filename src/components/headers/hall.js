@@ -26,12 +26,13 @@ const HallHeader = () => {
   }
 
   return (
-    <><img src={logo} alt='logo' className="logo" /><section className="nav-btn">
-      <Button text="Início" className='button' onClick={home} />
-      <Button text="Prontos para servir" className='button' onClick={toDeliver} />
-      <Button text="Pedidos entregues" className='button' onClick={delivered} />
-      <Button text="Sair" className='button' onClick={handleSignOut} />
-    </section></>
+    <><img src={logo} alt='logo' className="logo" />
+      <section className="center">
+        <Button text="Início" className='button' onClick={home} />
+        <Button text="Prontos para servir" className='button' onClick={toDeliver} />
+        <Button text="Pedidos entregues" className='button' onClick={delivered} />
+        <Button text="Sair" className='button' onClick={handleSignOut} />
+      </section></>
   )
 }
 

@@ -132,85 +132,85 @@ function Hall() {
   return (
     <>
       <HallHeader />
-      <div className="container">
-        <section className="menu">
+      <div className="hallArea">
 
-          <section className="nav-btn" >
-            <Button text="Hambúrgueres" className='button' onClick={() => { setMenu('hamburguer'); }} />
-            <Button text="Acompanhamentos" className='button' onClick={() => { setMenu('side'); }} />
-            <Button text="Bebidas" className='button' onClick={() => { setMenu('drinks'); }} />
-            <Button text="Café da manhã" className='button' onClick={() => { setMenu('breakfast'); }} />
-          </section>
 
-          <section className="products">
-            {/* verificação */}
-            {selectedProducts && selectedProducts.map((item, index) => (
-              <div className="card" key={index}>
-                <div>
-                  <Menu
-                    name={item.name}
-                    img={item.image}
-                    price={item.price}
-                    flavor={item.flavor}
-                    complement={item.complement === 'null' ? 'banana' : item.complement}
-                    onClick={(e) => handleAdd(e, item)} />
+        <div className="container">
+          <section>
+            <section className="center" >
+              <Button text="Hambúrgueres" className='button' onClick={() => { setMenu('hamburguer'); }} />
+              <Button text="Acompanhamentos" className='button' onClick={() => { setMenu('side'); }} />
+              <Button text="Bebidas" className='button' onClick={() => { setMenu('drinks'); }} />
+              <Button text="Café da manhã" className='button' onClick={() => { setMenu('breakfast'); }} />
+            </section>
+
+            <section className="hallScroll">
+              {/* verificação */}
+              {selectedProducts && selectedProducts.map((item, index) => (
+                <div className="card" key={index}>
+                  <div>
+                    <Menu
+                      name={item.name}
+                      img={item.image}
+                      price={item.price}
+                      flavor={item.flavor}
+                      complement={item.complement === 'null' ? 'banana' : item.complement}
+                      onClick={(e) => handleAdd(e, item)} />
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </section>
           </section>
-        </section>
+        </div>
+
+        <div className="container">
+          <div className="cart center">
+            <h2>Carrinho</h2>
+            <Input
+              className="cartInput field"
+              placeholder="Nome do cliente: "
+              name="client"
+              value={client}
+              onChange={(e) => setClient(e.target.value)} />
+            <select onChange={handleChange} value={selectTable} name="Mesa: " className="cartInput field select-table">
+              <option defaultValue>Mesa: </option>
+              <option value="1">Mesa 1</option>
+              <option value="2">Mesa 2</option>
+              <option value="3">Mesa 3</option>
+              <option value="4">Mesa 4</option>
+              <option value="5">Mesa 5</option>
+            </select>
+            <div>{error.order && <p className="error-msg">{error.order}</p>} </div>
+            <div>{error.table && <p className="error-msg">{error.table}</p>} </div>
+            <div>{error.client && <p className="error-msg">{error.client}</p>} </div>
+            <section className="hallScroll scrollCart">
+              {order.map((item, index) =>
+                <div key={index}>
+                  <Cart
+                    name={item.name}
+                    price={item.price}
+                    qtd={item.qtd}
+                    flavor={item.flavor}
+                    complement={item.complement}
+
+                    onClick={(e) => handleRemove(e, item, index)} />
+                </div>
+              )}
+            </section>
+            <p className="total">Total: R$ {total(order)},00</p>
+
+            <Button className="button" text="Despachar" onClick={(e) => handleSubmit(e)} />
+
+            {isModalVisible ? (
+              <Modal onClose={() => setIsModalVisible(false)}>
+                <h3>Despachado</h3>
+              </Modal>) : null}
+          </div>
+        </div>
+
 
       </div>
-      <div className="container">
-        <section className="client-info">
-          <h1>Carrinho</h1>
-
-          <Input
-            className="cartInput field"
-            placeholder="Nome do cliente: "
-            name="client"
-            value={client}
-            onChange={(e) => setClient(e.target.value)} />
-
-          <select onChange={handleChange} value={selectTable} name="Mesa: " className="cartInput field select-table">
-            <option defaultValue>Mesa: </option>
-            <option value="1">Mesa 1</option>
-            <option value="2">Mesa 2</option>
-            <option value="3">Mesa 3</option>
-            <option value="4">Mesa 4</option>
-            <option value="5">Mesa 5</option>
-          </select>
-
-          <div>{error.order && <p className="error-msg">{error.order}</p>} </div>
-          <div>{error.table && <p className="error-msg">{error.table}</p>} </div>
-          <div>{error.client && <p className="error-msg">{error.client}</p>} </div>
-
-
-          {order.map((item, index) =>
-            <div key={index}>
-              <Cart
-                name={item.name}
-                price={item.price}
-                qtd={item.qtd}
-                flavor={item.flavor}
-                complement={item.complement}
-
-                onClick={(e) => handleRemove(e, item, index)} />
-            </div>
-
-          )}
-
-          <p className="total">Total: R$ {total(order)},00</p>
-
-          <Button className="button" text="Despachar" onClick={(e) => handleSubmit(e)} />
-
-          {isModalVisible ? (
-            <Modal onClose={() => setIsModalVisible(false)}>
-              <h3>Despachado</h3>
-            </Modal>) : null}
-        </section>
-
-      </div></>
+    </>
   );
 }
 

@@ -2,11 +2,9 @@ import React from "react";
 import Button from "../button/button";
 import '../../components/modal/modal.css'
 
-// se não for passado onClose, executa função vazia(nada)
 const Modal = ({ onClose = () => { }, children }) => {
 
   const handleOutsideClick = (e) => {
-    // fechar também se clicar na div modal (div de fundo)
     if (e.target.id === 'modal') onClose();
   }
 

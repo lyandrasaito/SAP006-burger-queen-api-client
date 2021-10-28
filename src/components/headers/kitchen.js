@@ -23,7 +23,7 @@ const KitchenHeader = () => {
 
   return (
     <><img src={logo} alt='logo' className="logo" />
-      <section className="nav-btn">
+      <section className="center">
         <Button text="Pendentes" className='button' onClick={kitchen} />
         <Button text="Despachados" className='button' onClick={ready} />
         <Button text="Sair" className='button' onClick={handleSignOut} />

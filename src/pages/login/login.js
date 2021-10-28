@@ -8,6 +8,7 @@ import Button from "../../components/button/button.js";
 import Input from "../../components/input/input.js";
 import validation from "./loginValidation.js";
 import Modal from "../../components/modal/modal.js";
+import Footer from "../../components/footer/footer";
 
 const Login = () => {
   localStorage.clear();
@@ -68,7 +69,7 @@ const Login = () => {
     <>
       <div className='content flexBox'>
         <div className='area flexBox'>
-          <img src={logo} alt='logo' />
+          <img src={logo} alt='logo' className='auth-logo' />
           <h1>Login</h1>
           <form onSubmit={handleSubmit}>
             <div className='flexBox'>
@@ -94,6 +95,7 @@ const Login = () => {
           <h3>Não possui uma conta?</h3>
           <Button className='button' onClick={handleSignup} text='Cadastre-se' />
         </div>
+        <Footer />
       </div>
     </>
   );

@@ -8,6 +8,7 @@ import { signUp } from "../../services/authAPI.js";
 import { useState } from "react";
 import { useHistory } from 'react-router-dom';
 import Modal from "../../components/modal/modal.js";
+import Footer from "../../components/footer/footer";
 
 const SignUp = () => {
   localStorage.clear();
@@ -70,7 +71,7 @@ const SignUp = () => {
     <>
       <div className='content flexBox'>
         <div className='area flexBox'>
-          <img src={logo} alt='logo' />
+          <img src={logo} alt='logo' className='auth-logo' />
           <h1>Cadastro</h1>
 
           <form onSubmit={handleSubmit}>
@@ -107,8 +108,8 @@ const SignUp = () => {
             <Modal onClose={() => setIsModalVisible(false)}>
               <h3>E-mail já cadastrado</h3>
             </Modal>) : null}
-
         </div>
+        <Footer />
       </div>
     </>
   )
