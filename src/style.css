@@ -177,8 +177,7 @@ option {
 }
 
 .footer {
-  position: absolute;
-  bottom: 0;
+  margin-top: 5px;
 }
 
 .kitchenScroll {
@@ -197,7 +196,7 @@ option {
 }
 
 .scrollCart {
-  height: 280px;
+  height: 260px;
 }
 
 .scrollReady {
