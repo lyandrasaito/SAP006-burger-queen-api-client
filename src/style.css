@@ -190,13 +190,13 @@ option {
 .hallScroll {
   text-align: center;
   overflow: auto;
-  height: 550px;
+  height: 420px;
   width: 100%;
   margin-top: 25px;
 }
 
 .scrollCart {
-  height: 260px;
+  height: 200px;
 }
 
 .scrollReady {
@@ -241,7 +241,7 @@ option {
 @media (max-width:515px) {
   .hallArea {
     flex-direction: column;
-    margin-top: 350px;
+    margin-top: 300px;
   }
 }
 
