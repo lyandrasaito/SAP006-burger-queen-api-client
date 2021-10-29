@@ -26,7 +26,6 @@ h2 {
   width: 50%;
   border: 2px solid var(--red);
   border-radius: 5px;
-  /* min-height: 450px; */
 }
 
 .hallArea {
@@ -35,13 +34,6 @@ h2 {
   display: flex;
   justify-content: center;
 }
-
-/* .column {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-} */
 
 .kitchenArea {
   width: 98%;
@@ -96,12 +88,6 @@ h2 {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-}
-
-.flexBox2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .logo {
@@ -190,13 +176,13 @@ option {
 .hallScroll {
   text-align: center;
   overflow: auto;
-  height: 420px;
+  height: 550px;
   width: 100%;
   margin-top: 25px;
 }
 
 .scrollCart {
-  height: 200px;
+  height: 240px;
 }
 
 .scrollReady {
@@ -207,8 +193,6 @@ option {
   scrollbar-width: thin;
   scrollbar-color: var(--red) var(--gray);
 }
-
-/* Works on Chrome, Edge, and Safari */
 
 *::-webkit-scrollbar {
   width: 12px;
@@ -223,8 +207,6 @@ option {
   border-radius: 20px;
   border: 3px solid var(--red);
 }
-
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
 
 @media (max-width:360px) {
   .card-kitchen {

@@ -26,9 +26,7 @@ export const Ready = () => {
   });
 
   const duration = (updatedAt, createdAt) => {
-    // valor absoluto
     const difference = Math.abs(new Date(updatedAt) - new Date(createdAt));
-    // arredondar
     return Math.floor(difference / 1000 / 60);
   }
 
@@ -85,7 +83,6 @@ export const Ready = () => {
                     </div>
                   </div>
                 );
-
               })}
             </section>
           </section>

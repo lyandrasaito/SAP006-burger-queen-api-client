@@ -37,6 +37,9 @@ function Hall() {
     })
   }, [token]);
 
+  useEffect(() => {
+  }, [client, table, order])
+
   const selectedProducts = products.filter((prod) => prod.sub_type === menu)
 
   const handleAdd = (e, item) => {

@@ -8,11 +8,11 @@ export default function Menu({ onClick, className, key, id, name, price, flavor,
       <div className={className} key={key} id={id} price={price}>
         <h1 className="" > {id} {name}  </h1>
         <h1 className="">{flavor} {complement} </h1>
-        <img src={img} className="productsImage" alt="banana"></img>
+        <img src={img} className="productsImage" alt="imagem"></img>
         <h1 className="" >  R${price},00</h1>
 
         <Button onClick={onClick} className="button buttonAdd" text="+" />
       </div>
     </>
   );
-}
+};

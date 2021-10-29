@@ -7,6 +7,5 @@ export const postOrder = async (orderValues) => {
       'Authorization': `${token}`,
     },
     body: JSON.stringify(orderValues)
-  })
+  });
 }
-

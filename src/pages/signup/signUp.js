@@ -50,8 +50,6 @@ const SignUp = () => {
         if (response.code === 403) {
           setIsModalVisible(true);
         } else {
-          console.log(response.token);
-
           localStorage.setItem('token', response.token);
           localStorage.setItem('id', response.id);
 

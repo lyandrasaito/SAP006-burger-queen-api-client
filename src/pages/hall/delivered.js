@@ -22,7 +22,7 @@ function Delivered() {
         );
         setOrderStatus(status);
       });
-  })
+  });
 
   return (
     <>
@@ -56,6 +56,6 @@ function Delivered() {
 
       </div></>
   );
-}
+};
 
 export default Delivered;

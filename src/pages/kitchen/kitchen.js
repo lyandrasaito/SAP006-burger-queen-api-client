@@ -25,7 +25,7 @@ function Kitchen() {
         );
         setOrderStatus(status);
       });
-  })
+  });
 
   const setStatus = (id, newStatus) => {
     const status = { status: newStatus };
@@ -94,7 +94,7 @@ function Kitchen() {
         </div>
       </div></>
   );
-}
+};
 
 
 export default Kitchen;

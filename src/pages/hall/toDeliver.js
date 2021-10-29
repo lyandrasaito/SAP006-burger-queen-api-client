@@ -23,7 +23,7 @@ function ToDeliver() {
         );
         setOrderStatus(status);
       });
-  })
+  });
 
   const setStatus = (id, newStatus) => {
     const status = { status: newStatus };
@@ -85,8 +85,9 @@ function ToDeliver() {
           </section>
         </section>
 
-      </div></>
+      </div>
+    </>
   );
-}
+};
 
 export default ToDeliver;
