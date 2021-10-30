@@ -35,6 +35,9 @@ function Hall() {
     ).then((json) => {
       setProducts(json)
     })
+      .catch((error) => {
+        console.log(error)
+      })
   }, [token]);
 
   useEffect(() => {
@@ -44,18 +47,14 @@ function Hall() {
 
   const handleAdd = (e, item) => {
     e.preventDefault();
-    //find encontra o objeto clicado
     const element = order.find(res => res.id === item.id);
 
     if (element) {
       element.qtd += 1;
       setOrder([...order])
-      //mapeia a quantidade e se o id selecionado for o mesmo do id do produto, adiciona 1
     } else {
-      //não tendo ainda o item, cria 1
       item.qtd = 1;
       item.subtotal = item.price;
-      //abre o array de orders e adc o item
       setOrder([...order, item])
 
     }
@@ -71,7 +70,6 @@ function Hall() {
     }
     if (element.qtd === 0) {
       const listOrder = order;
-      // remove 1 item do array
       listOrder.splice(index, 1);
       setOrder([...listOrder])
     }
@@ -148,7 +146,6 @@ function Hall() {
             </section>
 
             <section className="hallScroll">
-              {/* verificação */}
               {selectedProducts && selectedProducts.map((item, index) => (
                 <div className="card" key={index}>
                   <div>

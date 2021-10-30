@@ -22,7 +22,10 @@ export const Ready = () => {
           itens.status.includes('ready') || itens.status.includes('delivered')
         );
         setOrders(status);
-      });
+      })
+      .catch((error) => {
+        console.log(error)
+      })
   });
 
   const duration = (updatedAt, createdAt) => {
@@ -46,7 +49,10 @@ export const Ready = () => {
             const order = orders;
             return order;
           });
-      });
+      })
+      .catch((error) => {
+        console.log(error)
+      })
   };
 
   return (

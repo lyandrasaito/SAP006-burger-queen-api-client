@@ -14,8 +14,8 @@ const isLogged = () => {
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
     {...rest} render={props =>
-      isLogged() ? (<Component {...props} />) : (<Redirect to={{ pathname: '/login', state: { from: props.location } }} />
-      )
+      isLogged() ? (<Component {...props} />) :
+        (<Redirect to={{ pathname: '/login', state: { from: props.location } }} />)
     }
   />
 );
