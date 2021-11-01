@@ -9,31 +9,31 @@ const HallHeader = () => {
 
   const home = () => {
     history.push('/hall')
-  }
+  };
 
   const toDeliver = () => {
     history.push('/todeliver')
-  }
+  };
 
   const delivered = () => {
     history.push('/delivered')
-  }
+  };
 
   const handleSignOut = (e) => {
     e.preventDefault();
     history.push('/login')
     localStorage.clear();
-  }
+  };
 
   return (
     <><img src={logo} alt='logo' className="logo" />
       <section className="center">
-        <Button text="Início" className='button' onClick={home} />
+        <Button text="Salão" className='button' onClick={home} />
         <Button text="Prontos para servir" className='button' onClick={toDeliver} />
         <Button text="Pedidos entregues" className='button' onClick={delivered} />
         <Button text="Sair" className='button' onClick={handleSignOut} />
       </section></>
-  )
-}
+  );
+};
 
 export default HallHeader;

@@ -35,24 +35,26 @@ function Hall() {
     ).then((json) => {
       setProducts(json)
     })
+      .catch((error) => {
+        console.log(error)
+      })
   }, [token]);
+
+  useEffect(() => {
+  }, [client, table, order])
 
   const selectedProducts = products.filter((prod) => prod.sub_type === menu)
 
   const handleAdd = (e, item) => {
     e.preventDefault();
-    //find encontra o objeto clicado
     const element = order.find(res => res.id === item.id);
 
     if (element) {
       element.qtd += 1;
       setOrder([...order])
-      //mapeia a quantidade e se o id selecionado for o mesmo do id do produto, adiciona 1
     } else {
-      //não tendo ainda o item, cria 1
       item.qtd = 1;
       item.subtotal = item.price;
-      //abre o array de orders e adc o item
       setOrder([...order, item])
 
     }
@@ -68,7 +70,6 @@ function Hall() {
     }
     if (element.qtd === 0) {
       const listOrder = order;
-      // remove 1 item do array
       listOrder.splice(index, 1);
       setOrder([...listOrder])
     }
@@ -144,22 +145,24 @@ function Hall() {
               <Button text="Café da manhã" className='button' onClick={() => { setMenu('breakfast'); }} />
             </section>
 
-            <section className="hallScroll">
-              {/* verificação */}
-              {selectedProducts && selectedProducts.map((item, index) => (
-                <div className="card" key={index}>
-                  <div>
-                    <Menu
-                      name={item.name}
-                      img={item.image}
-                      price={item.price}
-                      flavor={item.flavor}
-                      complement={item.complement === 'null' ? 'banana' : item.complement}
-                      onClick={(e) => handleAdd(e, item)} />
+            <div className="center">
+              <h3>Deslize o Cardápio</h3>
+              <section className="hallScroll">
+                {selectedProducts && selectedProducts.map((item, index) => (
+                  <div className="card" key={index}>
+                    <div>
+                      <Menu
+                        name={item.name}
+                        img={item.image}
+                        price={item.price}
+                        flavor={item.flavor}
+                        complement={item.complement === 'null' ? ' ' : item.complement}
+                        onClick={(e) => handleAdd(e, item)} />
+                    </div>
                   </div>
-                </div>
-              ))}
-            </section>
+                ))}
+              </section>
+            </div>
           </section>
         </div>
 
@@ -197,10 +200,10 @@ function Hall() {
                 </div>
               )}
             </section>
-            <p className="total">Total: R$ {total(order)},00</p>
-
-            <Button className="button" text="Despachar" onClick={(e) => handleSubmit(e)} />
-
+            <div className="sendCart">
+              <p className="total">Total: R$ {total(order)},00</p>
+              <Button className="button" text="Despachar" onClick={(e) => handleSubmit(e)} />
+            </div>
             {isModalVisible ? (
               <Modal onClose={() => setIsModalVisible(false)}>
                 <h3>Despachado</h3>

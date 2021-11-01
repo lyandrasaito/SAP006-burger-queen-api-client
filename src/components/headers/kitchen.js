@@ -11,15 +11,15 @@ const KitchenHeader = () => {
     e.preventDefault();
     history.push('/login')
     localStorage.clear();
-  }
+  };
 
   const ready = () => {
     history.push('/ready')
-  }
+  };
 
   const kitchen = () => {
     history.push('/kitchen')
-  }
+  };
 
   return (
     <><img src={logo} alt='logo' className="logo" />
@@ -29,7 +29,7 @@ const KitchenHeader = () => {
         <Button text="Sair" className='button' onClick={handleSignOut} />
       </section>
     </>
-  )
-}
+  );
+};
 
 export default KitchenHeader;

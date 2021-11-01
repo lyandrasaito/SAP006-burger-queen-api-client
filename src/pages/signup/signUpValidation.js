@@ -17,7 +17,7 @@ export const validation = (values) => {
   }
   if (!values.role) {
     errors.role = 'Selecione uma opção';
-  } 
+  }
   return errors;
 }
 

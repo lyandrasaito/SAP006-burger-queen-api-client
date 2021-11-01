@@ -12,6 +12,9 @@ export const signUp = async (name, email, password, role) => {
       restaurant: "Burger Things",
     }),
   }).then(res => res.json())
+    .catch((error) => {
+      console.log(error)
+    })
 };
 
 export const signIn = async (email, password) => {
@@ -24,5 +27,8 @@ export const signIn = async (email, password) => {
       email: email,
       password: password
     })
-  }).then(res => res.json());
+  }).then(res => res.json())
+    .catch((error) => {
+      console.log(error)
+    })
 };

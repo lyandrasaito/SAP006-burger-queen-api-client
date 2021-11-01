@@ -24,8 +24,11 @@ function Kitchen() {
           itens.status.includes('pending')
         );
         setOrderStatus(status);
-      });
-  })
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  });
 
   const setStatus = (id, newStatus) => {
     const status = { status: newStatus };
@@ -42,7 +45,10 @@ function Kitchen() {
           const order = orderStatus;
           return order;
         });
-      });
+      })
+      .catch((error) => {
+        console.log(error)
+      })
   };
 
   return (
@@ -94,7 +100,6 @@ function Kitchen() {
         </div>
       </div></>
   );
-}
-
+};
 
 export default Kitchen;

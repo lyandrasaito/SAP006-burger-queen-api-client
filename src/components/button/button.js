@@ -6,6 +6,6 @@ function Button({ onClick, text, className, type }) {
       {text}
     </button>
   );
-}
+};
 
 export default Button;

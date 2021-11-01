@@ -19,4 +19,4 @@ export default function Cart({ className, key, id, name, price, flavor, compleme
       </div>
     </>
   );
-}
+};

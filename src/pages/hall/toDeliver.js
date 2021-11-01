@@ -22,8 +22,11 @@ function ToDeliver() {
           itens.status.includes('ready')
         );
         setOrderStatus(status);
-      });
-  })
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  });
 
   const setStatus = (id, newStatus) => {
     const status = { status: newStatus };
@@ -40,7 +43,10 @@ function ToDeliver() {
           const order = orderStatus;
           return order;
         });
-      });
+      })
+      .catch((error) => {
+        console.log(error)
+      })
   };
 
   return (
@@ -85,8 +91,9 @@ function ToDeliver() {
           </section>
         </section>
 
-      </div></>
+      </div>
+    </>
   );
-}
+};
 
 export default ToDeliver;

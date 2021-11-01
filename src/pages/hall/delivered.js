@@ -21,8 +21,11 @@ function Delivered() {
           itens.status.includes('delivered')
         );
         setOrderStatus(status);
-      });
-  })
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  });
 
   return (
     <>
@@ -54,8 +57,9 @@ function Delivered() {
           </section>
         </section>
 
-      </div></>
+      </div>
+    </>
   );
-}
+};
 
 export default Delivered;

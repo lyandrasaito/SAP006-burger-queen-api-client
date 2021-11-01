@@ -26,7 +26,6 @@ h2 {
   width: 50%;
   border: 2px solid var(--red);
   border-radius: 5px;
-  /* min-height: 450px; */
 }
 
 .hallArea {
@@ -35,13 +34,6 @@ h2 {
   display: flex;
   justify-content: center;
 }
-
-/* .column {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-} */
 
 .kitchenArea {
   width: 98%;
@@ -98,19 +90,13 @@ h2 {
   flex-direction: column;
 }
 
-.flexBox2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .logo {
   width: 30vh;
   display: flex;
 }
 
 .auth-logo {
-  width: 55vh;
+  width: 34vw;
   display: flex;
 }
 
@@ -190,13 +176,13 @@ option {
 .hallScroll {
   text-align: center;
   overflow: auto;
-  height: 420px;
+  height: 50vh;
   width: 100%;
   margin-top: 25px;
 }
 
 .scrollCart {
-  height: 200px;
+  height: 15vh;
 }
 
 .scrollReady {
@@ -207,8 +193,6 @@ option {
   scrollbar-width: thin;
   scrollbar-color: var(--red) var(--gray);
 }
-
-/* Works on Chrome, Edge, and Safari */
 
 *::-webkit-scrollbar {
   width: 12px;
@@ -224,8 +208,6 @@ option {
   border: 3px solid var(--red);
 }
 
-/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-
 @media (max-width:360px) {
   .card-kitchen {
     height: 450px;
@@ -236,6 +218,9 @@ option {
     flex-direction: column;
     margin-top: 20px;
   }
+  .hallScroll {
+    height: 30vh;
+  }
 }
 
 @media (max-width:515px) {
@@ -244,11 +229,3 @@ option {
     margin-top: 300px;
   }
 }
-
-/*
-@media (min-width:480px) {}
-@media (min-width:600px) {}
-@media (min-width:801px) {}
-@media (min-width:1025px) {}
-@media (min-width:1281px) {}
-*/

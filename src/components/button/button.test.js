@@ -5,11 +5,8 @@ import Button from './button.js';
 it('deve renderizar um botão com o texto indicado', () => {
   const texto = "uva";
   render(<Button text="uva"></Button>);
-
   const btn = screen.getByText(texto);
-
   expect(btn).toBeInTheDocument();
-
 });
 
 it('deve disparar uma função de click recebida via prop', () => {
