@@ -39,6 +39,7 @@ E-mail para teste de cozinha: kitchen@kitchen.com - Senha: 123456
 
 ![Salão](https://user-images.githubusercontent.com/17890206/139560136-7a0168a0-ee57-4c99-868f-74a59c1ffad4.png)
 
+![Despachados](https://user-images.githubusercontent.com/17890206/139560126-35d537fa-186f-4e29-9398-f52443631d2a.png)
 
 ## 2. Solicitação
 Um pequeno restaurante de hambúrgueres, que está crescendo, necessita uma
