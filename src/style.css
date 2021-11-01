@@ -96,7 +96,7 @@ h2 {
 }
 
 .auth-logo {
-  width: 55vh;
+  width: 34vw;
   display: flex;
 }
 
@@ -176,13 +176,13 @@ option {
 .hallScroll {
   text-align: center;
   overflow: auto;
-  height: 550px;
+  height: 50vh;
   width: 100%;
   margin-top: 25px;
 }
 
 .scrollCart {
-  height: 240px;
+  height: 15vh;
 }
 
 .scrollReady {
@@ -218,6 +218,9 @@ option {
     flex-direction: column;
     margin-top: 20px;
   }
+  .hallScroll {
+    height: 30vh;
+  }
 }
 
 @media (max-width:515px) {
@@ -226,11 +229,3 @@ option {
     margin-top: 300px;
   }
 }
-
-/*
-@media (min-width:480px) {}
-@media (min-width:600px) {}
-@media (min-width:801px) {}
-@media (min-width:1025px) {}
-@media (min-width:1281px) {}
-*/

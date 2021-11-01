@@ -145,21 +145,24 @@ function Hall() {
               <Button text="Café da manhã" className='button' onClick={() => { setMenu('breakfast'); }} />
             </section>
 
-            <section className="hallScroll">
-              {selectedProducts && selectedProducts.map((item, index) => (
-                <div className="card" key={index}>
-                  <div>
-                    <Menu
-                      name={item.name}
-                      img={item.image}
-                      price={item.price}
-                      flavor={item.flavor}
-                      complement={item.complement === 'null' ? 'banana' : item.complement}
-                      onClick={(e) => handleAdd(e, item)} />
+            <div className="center">
+              <h3>Deslize o Cardápio</h3>
+              <section className="hallScroll">
+                {selectedProducts && selectedProducts.map((item, index) => (
+                  <div className="card" key={index}>
+                    <div>
+                      <Menu
+                        name={item.name}
+                        img={item.image}
+                        price={item.price}
+                        flavor={item.flavor}
+                        complement={item.complement === 'null' ? ' ' : item.complement}
+                        onClick={(e) => handleAdd(e, item)} />
+                    </div>
                   </div>
-                </div>
-              ))}
-            </section>
+                ))}
+              </section>
+            </div>
           </section>
         </div>
 
@@ -197,10 +200,10 @@ function Hall() {
                 </div>
               )}
             </section>
-            <p className="total">Total: R$ {total(order)},00</p>
-
-            <Button className="button" text="Despachar" onClick={(e) => handleSubmit(e)} />
-
+            <div className="sendCart">
+              <p className="total">Total: R$ {total(order)},00</p>
+              <Button className="button" text="Despachar" onClick={(e) => handleSubmit(e)} />
+            </div>
             {isModalVisible ? (
               <Modal onClose={() => setIsModalVisible(false)}>
                 <h3>Despachado</h3>
