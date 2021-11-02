@@ -16,7 +16,8 @@
 - [4. Planejamento](#4-Planejamento)
 - [5. Linguagens, ferramentas e tecnologias utilizadas](#5-Linguagens-ferramentas-e-tecnologias-utilizadas)
 - [6. Contato](#6-Contato)
-
+- [7. Demonstrações](#7-Demonstrações)  
+  
 ---
 
 ## 1. Prefácio
@@ -37,7 +38,11 @@ E-mail para teste de cozinha: kitchen@kitchen.com - Senha: 123456
 
 ![Login](https://user-images.githubusercontent.com/17890206/139560118-00814b87-0a17-49e0-82af-7fd238ffb3b8.png)
 
+  <div align="center">
+  
 ![Salão](https://user-images.githubusercontent.com/17890206/139560136-7a0168a0-ee57-4c99-868f-74a59c1ffad4.png)
+    
+  </div>
 
 ![Despachados](https://user-images.githubusercontent.com/17890206/139560126-35d537fa-186f-4e29-9398-f52443631d2a.png)
 
@@ -117,3 +122,17 @@ As funcionalidades da aplicação foram implementadas conforme as seguintes hist
 - Github: [github.com/lyandrasaito](https://github.com/lyandrasaito);
 - LinkedIn: [linkedin.com/lyandra-saito](https://www.linkedin.com/in/lyandra-saito);
 </div>
+
+## 7. Demonstrações 
+
+https://user-images.githubusercontent.com/17890206/139559741-faf00e7b-9dd0-4406-8577-74df936f174e.mp4
+
+https://user-images.githubusercontent.com/17890206/139559735-a3242158-e5cf-4603-8095-28d5f20d3388.mp4
+
+https://user-images.githubusercontent.com/17890206/139559737-f784331d-7a9b-41ad-bc60-8e1048d58c48.mp4
+
+https://user-images.githubusercontent.com/17890206/139559739-a69d9a67-2e95-47ae-b3c8-374a46f6a48d.mp4
+
+https://user-images.githubusercontent.com/17890206/139559736-3d27056a-6685-4982-a6fb-ac306a107a53.mp4
+
+https://user-images.githubusercontent.com/17890206/139559734-5b06479d-b817-40d9-8b08-173cf4976bf8.mp4
