@@ -89,7 +89,6 @@ const Login = () => {
               <h3>E-mail e/ou senha inválidos</h3>
             </Modal>) : null}
 
-
           <h3>Não possui uma conta?</h3>
           <Button className='button' onClick={handleSignup} text='Cadastre-se' />
         </div>
